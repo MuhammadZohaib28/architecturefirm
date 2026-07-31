@@ -6,7 +6,7 @@ import CtaSection from "@/components/common/CtaSection";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Explore selected residential, commercial, interior, renovation, and visualization projects by Kensington Design House.",
+    "Explore selected residential, commercial, interior, renovation, and visualization projects by Lissom Architects across the UK and UAE.",
 };
 
 export default function ProjectsPage() {

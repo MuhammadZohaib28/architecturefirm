@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Logo from "./Logo";
 
 const links = [
   { href: "/", label: "Home" },
@@ -54,16 +55,7 @@ export default function Navbar() {
         )}
       >
         <nav className="mx-auto flex h-20 max-w-[1400px] items-center justify-between px-6 lg:px-12">
-          <Link
-            href="/"
-            className="flex items-center gap-2.5"
-            aria-label="Kensington Design House home"
-          >
-            <span className="inline-block h-2.5 w-2.5 rotate-45 border border-charcoal" />
-            <span className="text-lg font-bold tracking-tight">
-              Kensington <span className="text-bronze">Design House</span>
-            </span>
-          </Link>
+          <Logo />
 
           <ul className="hidden items-center gap-9 lg:flex">
             {links.map((link) => (
@@ -92,7 +84,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link
               href="/contact"
-              className="hidden rounded-full bg-charcoal px-5 py-2.5 text-sm font-medium text-ivory transition-colors duration-300 hover:bg-bronze lg:inline-block"
+              className="hidden rounded-full bg-bronze px-5 py-2.5 text-sm font-semibold text-charcoal transition-colors duration-300 hover:bg-charcoal hover:text-ivory lg:inline-block"
             >
               Book Consultation
             </Link>
@@ -120,6 +112,7 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            data-lenis-prevent
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
@@ -152,7 +145,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-auto inline-flex items-center justify-center rounded-full bg-charcoal px-6 py-4 text-base font-medium text-ivory"
+              className="mt-auto inline-flex items-center justify-center rounded-full bg-bronze px-6 py-4 text-base font-semibold text-charcoal"
             >
               Book Consultation
             </Link>

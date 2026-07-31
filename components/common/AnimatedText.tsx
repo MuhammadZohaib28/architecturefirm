@@ -8,6 +8,7 @@ type AnimatedTextProps = {
   /** Each string is rendered on its own masked line. */
   lines: string[];
   className?: string;
+  lineClassNames?: string[];
   /** Render immediately (hero) instead of on scroll. */
   animateOnMount?: boolean;
   stagger?: number;
@@ -21,6 +22,7 @@ type AnimatedTextProps = {
 export default function AnimatedText({
   lines,
   className,
+  lineClassNames,
   animateOnMount = false,
   stagger = 0.1,
   delay = 0,
@@ -34,7 +36,7 @@ export default function AnimatedText({
       {lines.map((line, i) => (
         <span key={i} className="block overflow-hidden">
           <motion.span
-            className="block"
+            className={cn("block", lineClassNames?.[i])}
             variants={lineReveal}
             initial="hidden"
             {...animateProps}

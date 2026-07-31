@@ -8,18 +8,20 @@ import { services } from "@/data/services";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Architecture, interior design, 3D visualization, space planning, and more — the full range of services offered by Kensington Design House.",
+    "Residential architecture, commercial and retail interiors, and integrated spatial and brand design — the full range of services offered by Lissom Architects.",
 };
 
 const offerings = [
-  "Architecture & building design",
-  "Interior architecture & styling",
-  "Photoreal 3D visualization",
-  "Space planning & feasibility",
-  "Luxury villa & apartment design",
-  "Office, retail & hospitality fit-out",
-  "Renovation & heritage extensions",
-  "Project consultation & strategy",
+  "Extensions, renovations & conversions",
+  "New build residential architecture",
+  "Planning permission & feasibility",
+  "Office & workplace interiors",
+  "Retail, showroom & hospitality design",
+  "Brand-aligned environments",
+  "Brand identity, logo & packaging design",
+  "Signage & environmental graphics",
+  "CGI models, animation & visualization",
+  "Presentation, marketing & record drawings",
 ];
 
 export default function ServicesPage() {

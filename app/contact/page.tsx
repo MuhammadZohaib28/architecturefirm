@@ -8,16 +8,18 @@ import { generalFaqs } from "@/data/faqs";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Kensington Design House to discuss your architecture or interior design project. Book a consultation today.",
+    "Get in touch with Lissom Architects to discuss your project across the UK and UAE. Architecture, interiors, and branding under one roof.",
 };
 
 const details = [
-  { label: "Studio", lines: ["14 Albion Mews", "London, W2 2EG", "United Kingdom"] },
-  { label: "Email", lines: ["hello@kensingtondesignhouse.com", "new.business@kensingtondesignhouse.com"] },
-  { label: "Phone", lines: ["+44 20 7123 4567", "Mon–Fri, 9am–6pm GMT"] },
+  { label: "London Studio", lines: ["United Kingdom", "hello@lissom.co.uk", "+44 20 7123 4567"] },
+  { label: "Dubai Studio", lines: ["United Arab Emirates", "hello@lissom.co.uk", "+971 4 123 4567"] },
+  { label: "Email", lines: ["hello@lissom.co.uk", "Mon–Fri, 9am–6pm"] },
 ];
 
-const socials = ["Instagram", "LinkedIn", "Pinterest", "Behance"];
+const accreditations = ["RIBA Chartered", "ARB Registered", "Member · Dubai Municipality", "ISO 9001"];
+
+const socials = ["Instagram", "LinkedIn", "Behance"];
 
 export default function ContactPage() {
   return (
@@ -27,6 +29,38 @@ export default function ContactPage() {
         titleLines={["Let's start a", "conversation."]}
         description="Tell us about your project and we'll be in touch within two working days to arrange your consultation."
       />
+
+      {/* Intro copy */}
+      <section className="border-b border-stone bg-ivory py-16 lg:py-20">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
+          <Reveal className="max-w-3xl">
+            <h2 className="display text-2xl text-charcoal lg:text-3xl">
+              Looking for an architecture and design studio in the UK or UAE?
+            </h2>
+            <div className="mt-6 space-y-4 leading-relaxed text-muted">
+              <p>
+                We are a multidisciplinary architecture practice working across
+                residential and commercial projects, combining architecture,
+                interiors, and branding to deliver cohesive and considered
+                environments.
+              </p>
+              <p>
+                From new builds and extensions to commercial interiors and
+                brand-led spaces, we create work that balances creativity,
+                functionality, and long-term value. Our team guides you through
+                every stage of the process, translating ideas into refined,
+                purposeful spaces that are both practical and visually
+                distinctive.
+              </p>
+              <p className="text-charcoal">
+                Get in touch to start your project — we&apos;re here to help shape
+                spaces and brands that are thoughtfully designed, enduring, and
+                built around your vision.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       <section className="border-b border-stone bg-paper py-20 lg:py-28">
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-16 px-6 lg:grid-cols-12 lg:px-12">
@@ -57,13 +91,31 @@ export default function ContactPage() {
                   {socials.map((s) => (
                     <a
                       key={s}
-                      href="#"
+                      href={
+                        s === "Instagram"
+                          ? "https://instagram.com/Lissom_Architects"
+                          : "#"
+                      }
                       className="rounded-full border border-stone px-4 py-2 text-sm text-charcoal-soft transition-colors hover:border-charcoal hover:bg-charcoal hover:text-ivory"
                     >
-                      {s}
+                      {s === "Instagram" ? "@Lissom_Architects" : s}
                     </a>
                   ))}
                 </div>
+              </div>
+
+              <div className="border-t border-stone pt-5">
+                <h3 className="overline mb-3 text-muted">Accreditation</h3>
+                <ul className="flex flex-wrap gap-2">
+                  {accreditations.map((a) => (
+                    <li
+                      key={a}
+                      className="rounded-full bg-stone-soft px-3 py-1.5 text-sm text-charcoal-soft"
+                    >
+                      {a}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </Reveal>
@@ -78,8 +130,8 @@ export default function ContactPage() {
             <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-bronze">
               <span className="h-2.5 w-2.5 rounded-full bg-bronze" />
             </span>
-            <p className="overline mt-4">Kensington Design House · London</p>
-            <p className="mt-1 text-sm text-muted">14 Albion Mews, W2 2EG</p>
+            <p className="overline mt-4">Lissom Architects · London &amp; Dubai</p>
+            <p className="mt-1 text-sm text-muted">UK | UAE</p>
           </div>
         </div>
       </section>

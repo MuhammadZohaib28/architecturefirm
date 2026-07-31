@@ -3,29 +3,29 @@ import type { Faq } from "./services";
 /** General studio FAQs used on the contact and about pages. */
 export const generalFaqs: Faq[] = [
   {
-    question: "Where is the studio based, and where do you work?",
+    question: "Where are you based, and where do you work?",
     answer:
-      "Our studio is based in London, and we work internationally. Roughly half of our projects are abroad, and we are set up to run commissions remotely with periodic site visits.",
+      "We are an architecture practice based in the UK and UAE, with studios in London and Dubai. We work across both regions and beyond, running commissions with periodic site visits.",
   },
   {
-    question: "What size of project do you take on?",
+    question: "What kind of projects do you take on?",
     answer:
-      "From single apartments and interiors through to large homes and commercial fit-outs. If a project excites us and we can do it justice, scale is rarely the deciding factor.",
+      "Residential and commercial work alike — new builds, extensions, renovations and conversions, alongside commercial, hospitality, and retail interiors and complete brand development.",
+  },
+  {
+    question: "Do you really combine architecture, interiors, and branding?",
+    answer:
+      "Yes. Architecture, interiors, and branding sit under one roof, so every spatial and visual touchpoint works together to express a clear, consistent brand experience.",
   },
   {
     question: "How do your fees work?",
     answer:
-      "Most commissions are charged as a percentage of construction cost or a fixed fee agreed after the initial brief. We are transparent about fees from the very first conversation.",
+      "Most commissions are charged as a percentage of construction cost or a fixed fee agreed after the initial brief. We offer clear communication and cost certainty from the first conversation.",
   },
   {
     question: "How early should we engage you?",
     answer:
       "As early as possible — ideally before a site is purchased. Early involvement is where we add the most value, shaping feasibility, budget, and ambition from the start.",
-  },
-  {
-    question: "Do you offer both architecture and interior design?",
-    answer:
-      "Yes. We believe spaces are strongest when architecture and interiors are designed together, and most of our projects span both disciplines.",
   },
 ];
 

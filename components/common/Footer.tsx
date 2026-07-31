@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { FaInstagram } from "react-icons/fa6";
+import Logo from "./Logo";
 import { services } from "@/data/services";
 
 const quickLinks = [
@@ -10,53 +12,57 @@ const quickLinks = [
 ];
 
 const socials = [
-  { href: "#", label: "Instagram" },
-  { href: "#", label: "LinkedIn" },
-  { href: "#", label: "Pinterest" },
-  { href: "#", label: "Behance" },
+  {
+    href: "https://www.instagram.com/lissom_architects/",
+    label: "Lissom Architects",
+    Icon: FaInstagram,
+  },
 ];
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-charcoal text-ivory">
-      <div className="blueprint-grid pointer-events-none absolute inset-0 opacity-[0.08]" />
+    <footer className="relative overflow-hidden bg-[#FFBD59] text-black">
+      <div className="blueprint-grid pointer-events-none absolute inset-0 opacity-[0.12]" />
 
       <div className="relative mx-auto max-w-[1400px] px-6 lg:px-12">
-        <div className="grid gap-14 border-b border-ivory/10 py-20 md:grid-cols-2 lg:grid-cols-12">
-          {/* Brand */}
+        <div className="grid gap-14 border-b border-white py-20 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Link href="/" className="flex items-center gap-2.5">
-              <span className="inline-block h-2.5 w-2.5 rotate-45 border border-ivory" />
-              <span className="text-xl font-bold tracking-tight">
-                Kensington <span className="text-bronze-soft">Design House</span>
-              </span>
-            </Link>
-            <p className="mt-6 max-w-sm leading-relaxed text-ivory/55">
-              A luxury architecture and interior design studio crafting timeless
-              spaces with precision, purpose, and elegance.
+            <Logo tone="light" />
+            <p className="mt-6 max-w-sm leading-relaxed text-black/75">
+              A multidisciplinary architecture practice across the UK and UAE,
+              uniting architecture, interiors, and branding into a single,
+              cohesive vision.
             </p>
-            <div className="mt-8 flex gap-3">
+            <div className="mt-8 flex">
               {socials.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ivory/15 text-xs text-ivory/70 transition-colors hover:border-bronze-soft hover:text-ivory"
-                  aria-label={s.label}
+                  className="inline-flex items-center gap-3 rounded-full border border-white px-3 py-2 text-sm font-semibold text-black transition-colors hover:bg-white/25"
+                  aria-label={`Open ${s.label} on Instagram`}
+                  title={`Open ${s.label} on Instagram`}
+                  target="_blank"
+                  rel="noreferrer"
                 >
-                  {s.label.charAt(0)}
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[radial-gradient(circle_at_30%_110%,#fdf497_0%,#fdf497_12%,#fd5949_38%,#d6249f_62%,#285AEB_100%)] text-xl text-white shadow-sm">
+                    <s.Icon aria-hidden="true" />
+                  </span>
+                  <span>{s.label}</span>
                 </a>
               ))}
             </div>
           </div>
 
           <div className="lg:col-span-2 lg:col-start-6">
-            <h4 className="overline mb-6 text-ivory/40">Navigate</h4>
+            <h4 className="mb-6 text-xs font-extrabold tracking-[0.32em] text-white uppercase">
+              Navigate
+            </h4>
             <ul className="space-y-3.5">
               {quickLinks.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-ivory/65 transition-colors hover:text-ivory"
+                    className="text-black/75 transition-colors hover:text-black"
                   >
                     {l.label}
                   </Link>
@@ -66,13 +72,15 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h4 className="overline mb-6 text-ivory/40">Services</h4>
+            <h4 className="mb-6 text-xs font-extrabold tracking-[0.32em] text-white uppercase">
+              Services
+            </h4>
             <ul className="space-y-3.5">
               {services.slice(0, 6).map((s) => (
                 <li key={s.slug}>
                   <Link
                     href={`/services/${s.slug}`}
-                    className="text-ivory/65 transition-colors hover:text-ivory"
+                    className="text-black/75 transition-colors hover:text-black"
                   >
                     {s.title}
                   </Link>
@@ -82,16 +90,19 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h4 className="overline mb-6 text-ivory/40">Studio</h4>
-            <address className="space-y-3.5 not-italic text-ivory/65">
-              <p>14 Albion Mews<br />London, W2 2EG</p>
+            <h4 className="mb-6 text-xs font-extrabold tracking-[0.32em] text-white uppercase">
+              Studios
+            </h4>
+            <address className="space-y-3.5 not-italic text-black/75">
+              <p>London, United Kingdom</p>
+              <p>Dubai, United Arab Emirates</p>
               <p>
-                <a href="mailto:hello@kensingtondesignhouse.com" className="hover:text-ivory">
-                  hello@kensingtondesignhouse.com
+                <a href="mailto:hello@lissom.co.uk" className="hover:text-black">
+                  hello@lissom.co.uk
                 </a>
               </p>
               <p>
-                <a href="tel:+442071234567" className="hover:text-ivory">
+                <a href="tel:+442071234567" className="hover:text-black">
                   +44 20 7123 4567
                 </a>
               </p>
@@ -99,11 +110,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 py-8 text-sm text-ivory/45 md:flex-row">
-          <p>© {new Date().getFullYear()} Kensington Design House. All rights reserved.</p>
+        <div className="flex flex-col items-center justify-between gap-4 py-8 text-sm text-white md:flex-row">
+          <p>&copy; {new Date().getFullYear()} Lissom Architects PLC. All rights reserved.</p>
           <p className="flex gap-6">
-            <a href="#" className="hover:text-ivory/80">Privacy</a>
-            <a href="#" className="hover:text-ivory/80">Terms</a>
+            <a href="#" className="text-white transition-colors hover:text-black/65">
+              Privacy
+            </a>
+            <a href="#" className="text-white transition-colors hover:text-black/65">
+              Terms
+            </a>
           </p>
         </div>
       </div>

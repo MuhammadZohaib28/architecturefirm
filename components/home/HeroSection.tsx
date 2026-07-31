@@ -10,7 +10,7 @@ import { fadeUp, stagger } from "@/lib/animations";
 const heroStats = [
   { value: "50+", label: "Projects delivered" },
   { value: "10+", label: "Years of practice" },
-  { value: "5", label: "Cities worldwide" },
+  { value: "UK & UAE", label: "London & Dubai" },
 ];
 
 export default function HeroSection() {
@@ -31,7 +31,6 @@ export default function HeroSection() {
       <div className="blueprint-grid pointer-events-none absolute inset-0 opacity-50" />
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16 lg:px-12">
-        {/* Left — editorial copy */}
         <motion.div style={{ opacity }} className="relative z-10">
           <motion.div
             variants={fadeUp}
@@ -43,15 +42,24 @@ export default function HeroSection() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-bronze opacity-60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-bronze" />
             </span>
-            <span className="text-xs font-medium tracking-[0.18em] text-charcoal-soft uppercase">
-              Modern Architecture Studio
+            <span className="text-xs font-semibold tracking-[0.18em] text-charcoal-soft uppercase">
+              Architecture | Interiors | Branding
             </span>
           </motion.div>
 
-          <h1 className="display text-[2.6rem] leading-[1.02] sm:text-6xl lg:text-[4.1rem]">
+          <h1 className="display text-[2.6rem] font-black leading-[1.02] text-charcoal sm:text-6xl lg:text-[4.5rem] ">
             <AnimatedText
               animateOnMount
-              lines={["Designing Timeless", "Spaces With Precision,", "Purpose & Elegance"]}
+              lines={[
+                "Architecture, Interiors",
+                "& Branding - Designed",
+                "as One Vision",
+              ]}
+              lineClassNames={[
+                "text-charcoal font-extrabold text-[1.1em]",
+                "pb-1 leading-[1.09] text-[0.79em] font-medium text-[#FFBD59]",
+                "pb-1 leading-[1.09] text-[0.79em] font-medium text-[#FFBD59]",
+              ]}
               stagger={0.12}
             />
           </h1>
@@ -61,11 +69,11 @@ export default function HeroSection() {
             initial="hidden"
             animate="show"
             transition={{ delay: 0.6 }}
-            className="mt-7 max-w-md text-lg leading-relaxed text-muted"
+            className="mt-7 max-w-md text-xs font-semibold leading-relaxed text-black/45 sm:text-sm"
           >
-            We craft modern architectural experiences that combine beauty,
-            functionality, and long-term value for residential and commercial
-            spaces.
+            A multidisciplinary architecture practice across the UK and UAE,
+            uniting architecture, interiors, and branding to deliver cohesive,
+            considered environments with lasting value.
           </motion.p>
 
           <motion.div
@@ -86,7 +94,6 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Stats row */}
           <motion.div
             variants={stagger(0.1, 1)}
             initial="hidden"
@@ -94,15 +101,20 @@ export default function HeroSection() {
             className="mt-14 flex divide-x divide-stone border-t border-stone pt-8"
           >
             {heroStats.map((s) => (
-              <motion.div key={s.label} variants={fadeUp} className="px-6 first:pl-0">
+              <motion.div
+                key={s.label}
+                variants={fadeUp}
+                className="px-6 first:pl-0"
+              >
                 <div className="display text-3xl text-charcoal">{s.value}</div>
-                <div className="mt-1 text-xs tracking-wide text-muted">{s.label}</div>
+                <div className="mt-1 text-xs tracking-wide text-muted">
+                  {s.label}
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
 
-        {/* Right — layered image composition */}
         <div className="relative h-[440px] sm:h-[560px] lg:h-[640px]">
           <motion.div
             style={{ y: yMain }}
@@ -113,7 +125,7 @@ export default function HeroSection() {
           >
             <Image
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80"
-              alt="Contemporary luxury residence with warm stone façade"
+              alt="Contemporary luxury residence with warm stone facade"
               fill
               priority
               sizes="(max-width: 1024px) 80vw, 40vw"

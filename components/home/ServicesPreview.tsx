@@ -43,7 +43,7 @@ export default function ServicesPreview() {
           </Link>
         </div>
 
-        <div className="mt-14 border-t border-stone">
+        <div className="mt-14 border-t border-[#FFBD59]">
           {services.map((service, i) => (
             <motion.div
               key={service.slug}
@@ -56,9 +56,9 @@ export default function ServicesPreview() {
             >
               <Link
                 href={`/services/${service.slug}`}
-                className="group relative flex items-center gap-6 border-b border-stone py-7 transition-colors duration-500 hover:bg-stone-soft/60 md:gap-10 md:py-9"
+                className="group relative flex items-center gap-6 border-b border-[#FFBD59] py-7 transition-colors duration-500 hover:bg-stone-soft/60 md:gap-10 md:py-9"
               >
-                <span className="overline w-10 shrink-0 text-bronze md:w-16">
+                <span className="overline w-10 shrink-0 text-[#FFBD59] md:w-16">
                   {service.number}
                 </span>
                 <div className="flex-1 transition-transform duration-500 group-hover:translate-x-2 md:group-hover:translate-x-4">

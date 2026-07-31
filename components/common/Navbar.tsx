@@ -72,7 +72,7 @@ export default function Navbar() {
                   {link.label}
                   <span
                     className={cn(
-                      "absolute -bottom-1.5 left-0 h-px bg-bronze transition-all duration-300",
+                      "absolute -bottom-1.5 left-0 h-px bg-[#FFBD59] transition-all duration-300",
                       isActive(link.href) ? "w-full" : "w-0 group-hover:w-full",
                     )}
                   />

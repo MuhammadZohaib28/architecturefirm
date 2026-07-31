@@ -17,7 +17,7 @@ export default function HomePage() {
       <ServicesPreview />
       <FeaturedProjects />
       <DesignPhilosophy />
-      <StatsSection />
+      {/* <StatsSection /> */}
       <ProcessSection />
       <MaterialDetails />
       {/* <Testimonials /> */}

@@ -60,14 +60,27 @@ export default function ProcessSection() {
   }, []);
 
   return (
-    <section className="border-b border-stone bg-ivory py-24 lg:py-36">
+    <section className="border-b border-stone bg-ivory py-16 lg:py-24">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
         <SectionHeader
           eyebrow="How We Work"
-          titleLines={["A clear process,", "from first sketch", "to final review."]}
+          titleLines={[]}
         />
 
-        <div ref={sectionRef} className="mt-16 lg:mt-24">
+        <div className="mt-14 max-w-2xl">
+          <h3 className="display text-3xl text-charcoal lg:text-4xl">
+            Our Design Process
+          </h3>
+          <p className="mt-5 leading-relaxed text-muted">
+            As Architects, we follow the RIBA Plan of Works within our design
+            process, which spans from our initial meeting and site visits to
+            building completion and handover. The below suite of stages is based
+            on a &apos;Full Architects Service&apos; in which we can tailor our scope
+            and role to your project requirements and programme.
+          </p>
+        </div>
+
+        <div ref={sectionRef} className="mt-10 lg:mt-12">
           {/* Desktop horizontal timeline */}
           <div className="relative hidden lg:block">
             <div className="absolute left-0 right-0 top-[27px] h-px bg-stone" />

@@ -14,7 +14,7 @@ export default function ServiceDetailContent({ service }: { service: Service }) 
                 <span className="inline-block h-px w-8 bg-bronze" />
                 Overview
               </p>
-              <h2 className="display text-3xl text-charcoal lg:text-4xl">{service.tagline}</h2>
+              <h2 className="display text-3xl text-[#FFBD59] lg:text-4xl">{service.tagline}</h2>
             </Reveal>
             <Reveal className="lg:col-span-8" delay={0.1}>
               <p className="text-xl leading-relaxed text-charcoal-soft">{service.description}</p>

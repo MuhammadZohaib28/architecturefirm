@@ -47,13 +47,15 @@ export default function SectionHeader({
         </motion.div>
       )}
 
-      <AnimatedText
-        lines={titleLines}
-        className={cn(
-          "display text-4xl sm:text-5xl lg:text-[3.4rem]",
-          light ? "text-ivory" : "text-charcoal",
-        )}
-      />
+      {titleLines.length > 0 && (
+        <AnimatedText
+          lines={titleLines}
+          className={cn(
+            "display text-4xl sm:text-5xl lg:text-[3.4rem]",
+            light ? "text-ivory" : "text-charcoal",
+          )}
+        />
+      )}
 
       {description && (
         <motion.p

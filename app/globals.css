@@ -110,7 +110,7 @@ html.lenis body {
   letter-spacing: 0.32em;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--bronze);
+  color: #FFBD59 !important;
 }
 
 .hairline {

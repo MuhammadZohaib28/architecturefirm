@@ -64,7 +64,7 @@ export default function FeaturedProjects() {
   const stacked = rest.slice(0, 2);
 
   return (
-    <section className="border-b border-stone bg-paper py-24 lg:py-36">
+    <section className="border-b border-stone bg-paper pt-14 pb-24 lg:pt-20 lg:pb-36">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <SectionHeader

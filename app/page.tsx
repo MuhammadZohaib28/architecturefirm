@@ -1,5 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
 import SignatureIntro from "@/components/home/SignatureIntro";
+import CinematicInterlude from "@/components/home/CinematicInterlude";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import ProcessSection from "@/components/home/ProcessSection";
 import MaterialDetails from "@/components/home/MaterialDetails";
@@ -10,6 +11,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <SignatureIntro />
+      <CinematicInterlude />
       <FeaturedProjects />
       <ProcessSection />
       <MaterialDetails />

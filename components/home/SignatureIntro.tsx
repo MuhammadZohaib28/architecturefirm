@@ -49,7 +49,7 @@ export default function SignatureIntro() {
   }, []);
 
   return (
-    <section className="overflow-hidden border-b border-stone bg-paper py-24 lg:py-36">
+    <section className="overflow-hidden bg-paper pt-24 pb-8 lg:pt-36 lg:pb-10">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
         <p className="overline mb-8 flex items-center gap-3">
           <span className="inline-block h-px w-8 bg-bronze" />

@@ -13,8 +13,8 @@ export default function FinalCTA() {
         <div className="relative overflow-hidden rounded-sm">
           <div className="absolute inset-0">
             <Image
-              src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1920&q=80"
-              alt="Interior of a contemporary luxury home"
+              src="/images/projects/the-willow-house/island-kitchen.jpg"
+              alt="Kitchen interior at The Willow House by Lissom"
               fill
               sizes="100vw"
               className="object-cover"
@@ -54,7 +54,7 @@ export default function FinalCTA() {
               <Button
                 href="/contact"
                 variant="outline"
-                className="border-ivory/40 text-ivory hover:border-ivory hover:bg-ivory hover:text-charcoal"
+                className="border-ivory/40 text-ivory hover:border-ivory hover:bg-ivory hover:!text-black"
               >
                 Contact Studio
               </Button>

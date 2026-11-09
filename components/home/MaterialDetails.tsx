@@ -8,27 +8,27 @@ import { viewportOnce } from "@/lib/animations";
 const details = [
   {
     label: "Light",
-    image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&q=80",
+    image: "/images/projects/the-gables/dining-room.png",
     span: "lg:col-span-2 lg:row-span-2 aspect-square lg:aspect-auto",
   },
   {
     label: "Space",
-    image: "https://images.unsplash.com/photo-1615875605825-5eb9bb5d52ac?w=700&q=80",
+    image: "/images/projects/the-gables/rear-detail.jpg",
     span: "aspect-[4/3]",
   },
   {
     label: "Texture",
-    image: "https://images.unsplash.com/photo-1616137466211-f939a420be84?w=700&q=80",
+    image: "/images/projects/the-willow-house/kitchen.jpg",
     span: "aspect-[4/3]",
   },
   {
     label: "Proportion",
-    image: "https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=700&q=80",
+    image: "/images/projects/the-willow-house/living-space.jpg",
     span: "aspect-[4/3]",
   },
   {
     label: "Materials",
-    image: "https://images.unsplash.com/photo-1617104678098-de229db51175?w=700&q=80",
+    image: "/images/projects/the-willow-house/island-kitchen.jpg",
     span: "aspect-[4/3]",
   },
 ];

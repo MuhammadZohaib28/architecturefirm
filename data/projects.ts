@@ -68,7 +68,7 @@ export const projects: Project[] = [
       "/images/projects/the-willow-house/front-detail.png",
       "/images/projects/the-willow-house/front-night.jpg",
       "/images/projects/the-willow-house/winter-front.jpg",
-      "/images/projects/the-willow-house/rear-elevation.png",
+      "/images/projects/the-willow-house/vfdvdvd.png",
       "/images/projects/the-willow-house/winter-rear.jpg",
       "/images/projects/the-willow-house/ground-floor-plan.png",
       "/images/projects/the-willow-house/first-floor-plan.png",

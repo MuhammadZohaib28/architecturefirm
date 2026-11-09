@@ -43,8 +43,8 @@ const heroSlides = [
     ],
   },
   {
-    src: "/images/projects/the-willow-house/rear-extension.png",
-    alt: "Contemporary garden extension at The Willow House",
+    src: "/images/projects/the-willow-house/vfdvdvd.png",
+    alt: "Rear elevation and garden extension at The Willow House",
     project: "The Willow House",
     location: "London, UK",
     href: "/projects/the-willow-house",

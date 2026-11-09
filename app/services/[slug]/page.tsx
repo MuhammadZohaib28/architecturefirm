@@ -44,7 +44,11 @@ export default async function ServiceDetailPage(
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className={
+            service.heroImage.includes("plan")
+              ? "bg-stone-soft object-contain p-8"
+              : "object-cover"
+          }
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/25 to-charcoal/35" />
         <div className="absolute inset-x-0 bottom-0">

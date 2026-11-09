@@ -12,16 +12,16 @@ export const metadata: Metadata = {
 };
 
 const offerings = [
-  "Extensions, renovations & conversions",
-  "New build residential architecture",
-  "Planning permission & feasibility",
-  "Office & workplace interiors",
-  "Retail, showroom & hospitality design",
-  "Brand-aligned environments",
-  "Brand identity, logo & packaging design",
-  "Signage & environmental graphics",
-  "CGI models, animation & visualization",
-  "Presentation, marketing & record drawings",
+  "Concept design and feasibility",
+  "Measured site surveys",
+  "Planning drawings and submissions",
+  "Building Control technical drawings",
+  "Structural Engineer coordination",
+  "Construction and setting-out information",
+  "Extensions, renovations and new builds",
+  "Interior and hospitality design",
+  "Brand identity, signage and packaging",
+  "CGI models and animation",
 ];
 
 export default function ServicesPage() {
@@ -35,7 +35,7 @@ export default function ServicesPage() {
 
       <section className="bg-ivory py-16 lg:py-24">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {services.map((service, i) => (
               <ServiceCard key={service.slug} service={service} index={i} />
             ))}
@@ -55,8 +55,8 @@ export default function ServicesPage() {
               One studio, end to end.
             </h2>
             <p className="mt-5 leading-relaxed text-muted">
-              Because architecture and interiors live under one roof here, your
-              project stays coherent from concept to completion.
+              Concept, planning, and technical information are connected so
+              the project can progress with clarity from one stage to the next.
             </p>
           </Reveal>
           <div className="lg:col-span-8">

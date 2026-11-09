@@ -35,7 +35,11 @@ export default function ServiceCard({
             alt=""
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
+            className={
+              service.cardImage.includes("plan")
+                ? "bg-stone-soft object-contain p-5"
+                : "object-cover"
+            }
           />
           <div className="absolute inset-0 bg-charcoal/55" />
         </div>

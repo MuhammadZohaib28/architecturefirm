@@ -30,15 +30,15 @@ export default function Footer() {
             <Logo tone="light" />
             <p className="mt-6 max-w-sm leading-relaxed text-black/75">
               A multidisciplinary architecture practice across the UK and UAE,
-              uniting architecture, interiors, and branding into a single,
-              cohesive vision.
+              shaping architecture, interiors, hospitality, and branding as
+              cohesive experiences.
             </p>
             <div className="mt-8 flex">
               {socials.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
-                  className="inline-flex items-center gap-3 rounded-full border border-white px-3 py-2 text-sm font-semibold text-black transition-colors hover:bg-white/25"
+                  className="inline-flex items-center gap-3 rounded-full border border-white px-3 py-2 text-sm font-semibold text-black transition-colors hover:bg-white hover:!text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-bronze"
                   aria-label={`Open ${s.label} on Instagram`}
                   title={`Open ${s.label} on Instagram`}
                   target="_blank"
@@ -97,13 +97,8 @@ export default function Footer() {
               <p>London, United Kingdom</p>
               <p>Dubai, United Arab Emirates</p>
               <p>
-                <a href="mailto:hello@lissom.co.uk" className="hover:text-black">
-                  hello@lissom.co.uk
-                </a>
-              </p>
-              <p>
-                <a href="tel:+442071234567" className="hover:text-black">
-                  +44 20 7123 4567
+                <a href="mailto:hello@lissomarchitects.com" className="hover:text-black">
+                  hello@lissomarchitects.com
                 </a>
               </p>
             </address>

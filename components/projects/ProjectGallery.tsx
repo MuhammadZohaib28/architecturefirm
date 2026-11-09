@@ -34,8 +34,12 @@ export default function ProjectGallery({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={viewportOnce}
             transition={{ duration: 0.7, delay: (i % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className={`img-zoom relative overflow-hidden rounded-sm bg-stone-soft ${
-              i % 3 === 0 ? "sm:col-span-2 aspect-[16/9]" : "aspect-[4/3]"
+            className={`img-zoom relative overflow-hidden rounded-sm bg-stone-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze focus-visible:ring-offset-2 ${
+              src.includes("plan")
+                ? "aspect-[4/3] bg-white"
+                : i % 3 === 0
+                  ? "sm:col-span-2 aspect-[16/9]"
+                  : "aspect-[4/3]"
             }`}
           >
             <Image
@@ -43,7 +47,7 @@ export default function ProjectGallery({
               alt={`${title} — gallery image ${i + 1}`}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
+              className={src.includes("plan") ? "object-contain p-4" : "object-cover"}
             />
           </motion.button>
         ))}
@@ -60,7 +64,7 @@ export default function ProjectGallery({
           >
             <button
               type="button"
-              className="absolute right-6 top-6 text-sm tracking-wide text-ivory/70 hover:text-ivory"
+              className="absolute right-6 top-6 rounded-full border border-ivory/50 px-4 py-2 text-sm tracking-wide text-ivory/80 transition-colors hover:bg-ivory hover:!text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ivory"
               aria-label="Close gallery"
             >
               Close ✕

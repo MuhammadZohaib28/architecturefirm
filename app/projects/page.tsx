@@ -6,7 +6,7 @@ import CtaSection from "@/components/common/CtaSection";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Explore selected residential, commercial, interior, renovation, and visualization projects by Lissom Architects across the UK and UAE.",
+    "Explore residential architecture and interior projects by Lissom Architects in Essex, England.",
 };
 
 export default function ProjectsPage() {
@@ -15,7 +15,7 @@ export default function ProjectsPage() {
       <PageHero
         eyebrow="Selected Work"
         titleLines={["A portfolio of", "considered spaces."]}
-        description="A selection of homes, workplaces, and interiors shaped by light, material, and a relentless attention to detail."
+        description="Two contemporary Essex homes shaped by light, material, and a close relationship with their landscapes."
       />
 
       <section className="bg-ivory py-16 lg:py-24">

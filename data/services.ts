@@ -8,6 +8,12 @@ export type Faq = {
   answer: string;
 };
 
+export type ServicePackage = {
+  title: string;
+  price: string;
+  description: string;
+};
+
 export type Service = {
   slug: string;
   number: string;
@@ -17,170 +23,222 @@ export type Service = {
   description: string;
   heroImage: string;
   cardImage: string;
+  startingPrice: string;
+  packages: ServicePackage[];
   included: string[];
   approach: string;
   benefits: string[];
   process: ProcessStep[];
   faqs: Faq[];
-  relatedProjects: string[]; // project slugs
+  relatedProjects: string[];
 };
 
 export const services: Service[] = [
   {
-    slug: "residential-architect-services",
+    slug: "concept",
     number: "01",
-    title: "Residential Architect Services",
-    tagline: "Homes shaped by timeless architecture and exceptional craft.",
+    title: "Concept",
+    tagline: "See the potential before you commit.",
     excerpt:
-      "Extensions, renovations, conversions, interiors, and new builds — designed and delivered with precision and care.",
+      "Unsure of your property's potential? Let us help you visualise it from just £250.",
     description:
-      "Enhancing homes with timeless architecture, intelligent design, and exceptional craftsmanship, we deliver projects that add lasting value. As designers and builders, we transform your vision into a reality with precision and care.",
-    heroImage:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80",
-    cardImage:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
+      "Start with a free initial on-site meeting, then explore the property's potential through clear, proportionate design work.",
+    heroImage: "/images/projects/the-gables/dining-room.png",
+    cardImage: "/images/projects/the-gables/kitchen-dining.png",
+    startingPrice: "From £250",
+    packages: [
+      {
+        title: "Initial On-Site Meeting",
+        price: "Free of charge",
+        description:
+          "A visit to understand the property, brief and opportunities before design work begins.",
+      },
+      {
+        title: "2D Design Proposals",
+        price: "From £250",
+        description:
+          "Localised plans, elevations and sections of the proposal, with design variations and follow-up on-site discussion. A measured survey may be required.",
+      },
+      {
+        title: "CGI Models & Animation",
+        price: "From £300",
+        description:
+          "Visual material that helps you understand the proposal before work begins.",
+      },
+      {
+        title: "Full House Renovation & New Builds",
+        price: "From £1,400",
+        description:
+          "A more comprehensive concept package for whole-home renovation and new-build projects.",
+      },
+    ],
     included: [
-      "Extensions",
-      "Renovations",
-      "Conversions",
-      "Interiors",
-      "New builds",
-      "Planning permission",
+      "Initial on-site meeting",
+      "Localised plans, elevations and sections",
+      "Design variations to explore options",
+      "Follow-up on-site discussion",
+      "Optional CGI models and animation",
     ],
     approach:
-      "At Lissom Architects, we believe that every home should be thoughtfully crafted to enrich lives while respecting the environment. We champion low-energy construction methods, responsibly sourced materials, and local craftsmanship wherever possible — embracing the character of each site and the resources of its surrounding community. Every project is a journey of transformation: we listen carefully, design thoughtfully, and deliver architecture that balances performance, comfort, and timeless quality.",
+      "If you need a cost estimate before committing to your project, we can prepare a basic conceptual design proposal that allows contractors to provide more accurate ballpark figures before the process moves forward.",
     benefits: [
-      "Tailored design excellence",
-      "Uncompromising quality",
-      "Complete cost confidence",
-      "A home deeply connected to its place",
+      "Understand the property's potential early",
+      "Compare design options before committing",
+      "Seek more informed early cost estimates",
     ],
     process: [
-      { title: "Discovery", description: "We listen, study the site, and define the brief." },
-      { title: "Concept", description: "Massing, plan, and the central design idea take form." },
-      { title: "Design & Planning", description: "Detail resolved and planning permission secured." },
-      { title: "Documentation", description: "Drawings prepared for construction." },
-      { title: "Build Support", description: "As designer-builders, we deliver with precision and care." },
+      { title: "Meet", description: "We visit the property and discuss your aims." },
+      { title: "Explore", description: "We prepare and compare initial design directions." },
+      { title: "Visualise", description: "Plans and optional CGI make the preferred direction clear." },
     ],
     faqs: [
       {
-        question: "Do you handle planning permission?",
-        answer:
-          "Yes. We manage the planning process end to end — from feasibility and design through to submission and approvals.",
+        question: "Is the first meeting charged?",
+        answer: "No. The initial on-site meeting is free of charge.",
       },
       {
-        question: "Do you work on extensions and renovations as well as new builds?",
+        question: "Will I need a measured survey?",
         answer:
-          "Absolutely. Extensions, renovations, and conversions are a core part of our residential work, alongside complete new builds.",
-      },
-      {
-        question: "Are you designers or builders?",
-        answer:
-          "Both. As designer-builders we carry your project from first sketch through to a finished, carefully delivered home.",
+          "A measured survey may be required depending on the property and the scope of the proposal.",
       },
     ],
-    relatedProjects: ["maison-lumiere", "ridgeline-residence", "atrium-house"],
+    relatedProjects: ["the-gables", "the-willow-house"],
   },
   {
-    slug: "commercial-hospitality-retail-interiors",
+    slug: "planning",
     number: "02",
-    title: "Commercial, Hospitality & Retail Interiors",
-    tagline: "Spaces that balance form and function — and leave a lasting impression.",
+    title: "Planning",
+    tagline: "From survey to submission, in one clear process.",
     excerpt:
-      "Productive workplaces, engaging retail spaces, and welcoming hospitality settings, designed around your brand.",
+      "All your planning needs, from survey to approval, with planning drawings from £1,000.",
     description:
-      "We craft commercial environments that balance form and function — productive workplaces, engaging retail spaces, and welcoming hospitality settings designed to leave a lasting impression.",
-    heroImage:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1920&q=80",
-    cardImage:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80",
+      "We prepare the measured information, planning drawings and submission documents needed to take a proposal through the planning process.",
+    heroImage: "/images/projects/the-gables/ground-floor-plan.png",
+    cardImage: "/images/projects/the-gables/first-floor-plan.png",
+    startingPrice: "From £1,000",
+    packages: [
+      {
+        title: "Measured Site Survey",
+        price: "From £200",
+        description:
+          "Floor plans, elevations, roof information and the localised area of the existing property required for the bespoke proposal.",
+      },
+      {
+        title: "Porches, Single-Storey Extensions, Annexes & Outbuildings",
+        price: "From £1,000",
+        description:
+          "Existing and proposed plans suitable for a planning submission.",
+      },
+      {
+        title: "Two-Storey Extensions & Loft Conversions",
+        price: "From £1,250",
+        description:
+          "Existing and proposed plans suitable for a planning submission.",
+      },
+      {
+        title: "Submission Package",
+        price: "£300",
+        description:
+          "Preparation and submission of the planning application, associated documents, support through to the decision date and minor changes requested by the council.",
+      },
+    ],
     included: [
-      "Office & Workplace Interiors",
-      "Retail & Showroom Spaces",
-      "Hospitality Design",
-      "Brand-Aligned Environments",
-      "Technical Services — CGI models & animation",
-      "Presentation, marketing & record drawings",
+      "Measured floor plans and elevations",
+      "Roof and localised site information",
+      "Existing and proposed planning drawings",
+      "Planning application preparation",
+      "Associated submission documents",
+      "Application support through to decision",
+      "Minor changes requested by the council",
     ],
     approach:
-      "Our technical services bring each scheme to life before it is built — creating CGI models and animation of the project, and preparing special presentations, marketing, and record drawings, models, and photography. Every environment is designed to express and elevate your brand while working seamlessly day to day.",
+      "A multi-service discount is available for integrated developments that combine more than one extension, such as a loft conversion with a rear extension.",
     benefits: [
-      "Environments that express and elevate your brand",
-      "Purposeful layouts designed for productivity and seamless flow",
-      "Distinctive spaces that engage, inspire, and attract",
+      "One route from measured survey to submission",
+      "Drawings tailored to the proposal",
+      "Support through the council decision process",
     ],
     process: [
-      { title: "Brief", description: "We align on brand, function, and goals." },
-      { title: "Concept", description: "The spatial identity is established." },
-      { title: "Visualization", description: "CGI models and animation preview the result." },
-      { title: "Documentation", description: "Fit-out and record drawings are prepared." },
-      { title: "Delivery", description: "We support the fit-out through to completion." },
+      { title: "Survey", description: "We record the existing property and site." },
+      { title: "Draw", description: "Existing and proposed planning drawings are prepared." },
+      { title: "Submit", description: "The application and associated documents are lodged." },
+      { title: "Follow Through", description: "We support the application through to its decision." },
     ],
     faqs: [
       {
-        question: "Do you provide CGI and visualization?",
+        question: "Can you submit the planning application for me?",
         answer:
-          "Yes. Our technical services include CGI models and animation, plus presentation, marketing, and record drawings, models, and photography.",
+          "Yes. The submission package covers preparation and submission of the application and associated documents.",
       },
       {
-        question: "Can you align the interior with our brand?",
+        question: "Do you offer a discount for combined works?",
         answer:
-          "Brand-aligned environments are central to our commercial work — we design every space to express and elevate your brand.",
+          "A multi-service discount is available for integrated developments involving more than one extension.",
       },
     ],
-    relatedProjects: ["skyline-offices", "harbor-retail", "the-gallery-loft"],
+    relatedProjects: ["the-gables", "the-willow-house"],
   },
   {
-    slug: "integrated-spatial-brand-design",
+    slug: "building-control",
     number: "03",
-    title: "Integrated Spatial & Brand Design",
-    tagline: "Complete brand experiences that extend beyond the built environment.",
+    title: "Building Control",
+    tagline: "Technical drawings that carry the design into construction.",
     excerpt:
-      "Interior design, brand identity, packaging, signage, and visual communications — every touchpoint, one story.",
+      "Detailed technical plans for Structural Engineer coordination, Building Control sign-off and construction on site.",
     description:
-      "We create complete brand experiences that extend beyond the built environment. By combining interior design, brand identity, packaging, signage, and visual communications, we ensure every customer touchpoint reflects a cohesive and memorable brand story.",
-    heroImage:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80",
-    cardImage:
-      "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=1200&q=80",
+      "We produce detailed technical plans and construction drawings suitable for coordination with your Structural Engineer, Building Control approval and use by your builders on site.",
+    heroImage: "/images/projects/the-willow-house/ground-floor-plan.png",
+    cardImage: "/images/projects/the-willow-house/first-floor-plan.png",
+    startingPrice: "From £1,250",
+    packages: [
+      {
+        title: "Complete Package",
+        price: "From £1,250",
+        description:
+          "The technical drawing information required to progress a project from design through to Building Control and construction. Free quotations are available.",
+      },
+    ],
     included: [
-      "Brand Identity & Logo Design",
-      "Packaging Design (Food, Beverage & Retail Products)",
-      "Signage & Environmental Graphics",
-      "Interior Design",
-      "Technical Services — CGI models & animation",
-      "Presentation, marketing & record drawings",
+      "Existing and proposed architectural drawings",
+      "Detailed floor plans, elevations and sections",
+      "Technical construction drawings",
+      "Building Regulation details",
+      "Wall, floor and roof construction details",
+      "Window and door details",
+      "Structural Engineer coordination",
+      "Building Control submission drawings",
+      "Construction and setting-out layouts for builders",
+      "Technical revisions following Building Control comments",
     ],
     approach:
-      "We bring spatial design and visual identity together so that the building, the interior, and the brand within it all speak with one voice. Our technical services create CGI models and animation of the project, alongside special presentations, marketing, and record drawings, models, and photography — ensuring a clear and consistent brand experience across every touchpoint.",
+      "Contact us with your existing drawings, planning approval or project details and we can provide a tailored quotation.",
     benefits: [
-      "Architecture, interiors, and branding under one roof",
-      "Seamless brand experiences across every touchpoint",
-      "Designs that add long-term value",
+      "Coordinated technical information",
+      "Drawings suitable for Building Control",
+      "Clear construction information for builders",
     ],
     process: [
-      { title: "Discovery", description: "We define the brand story and spatial goals." },
-      { title: "Identity", description: "Brand identity, logo, and visual language are designed." },
-      { title: "Space & Graphics", description: "Interiors, signage, and packaging are developed together." },
-      { title: "Visualization", description: "CGI and presentations preview the full experience." },
-      { title: "Delivery", description: "Every touchpoint is delivered to a single standard." },
+      { title: "Review", description: "We assess the design information and planning position." },
+      { title: "Detail", description: "The technical drawing package is developed." },
+      { title: "Coordinate", description: "We coordinate the package with the Structural Engineer." },
+      { title: "Support", description: "Comments and revisions are addressed as the project progresses." },
     ],
     faqs: [
       {
-        question: "Do you design brand identity and logos?",
+        question: "Can you coordinate with my Structural Engineer?",
         answer:
-          "Yes — brand identity and logo design sit alongside packaging, signage, and environmental graphics in our integrated offer.",
+          "Yes. Structural Engineer coordination is included within the technical drawing service.",
       },
       {
-        question: "Can you do packaging and signage as well as interiors?",
+        question: "Can builders use these drawings on site?",
         answer:
-          "We design across packaging (food, beverage, and retail products), signage, environmental graphics, and the interiors they live in — as one cohesive experience.",
+          "The package includes construction and setting-out layouts prepared for use by builders on site.",
       },
     ],
-    relatedProjects: ["harbor-retail", "the-gallery-loft", "skyline-offices"],
+    relatedProjects: ["the-gables", "the-willow-house"],
   },
 ];
 
 export function getService(slug: string): Service | undefined {
-  return services.find((s) => s.slug === slug);
+  return services.find((service) => service.slug === slug);
 }

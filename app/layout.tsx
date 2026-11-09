@@ -22,13 +22,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lissom.co.uk"),
+  metadataBase: new URL("https://lissomarchitects.com"),
   title: {
-    default: "Lissom Architects — Architecture, Interiors & Branding | UK & UAE",
+    default: "Lissom Architects - Shaping Spaces. Defining Experiences.",
     template: "%s · Lissom Architects",
   },
   description:
-    "Lissom Architects is a multidisciplinary architecture practice across the UK and UAE, uniting architecture, interiors, and branding to create cohesive, considered environments.",
+    "Lissom Architects is a multidisciplinary practice across the UK and UAE, shaping architecture, interiors, hospitality and branding as cohesive experiences.",
   keywords: [
     "architecture firm",
     "residential architect",
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     "Dubai architect",
   ],
   openGraph: {
-    title: "Lissom Architects — Architecture, Interiors & Branding | UK & UAE",
+    title: "Lissom Architects - Shaping Spaces. Defining Experiences.",
     description:
-      "Architecture, interiors, and branding under one roof. Studios in London and Dubai.",
+      "Shaping architecture, interiors, hospitality and branding across the UK and UAE.",
     type: "website",
   },
 };
@@ -53,7 +53,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${playfair.variable}`}>
+    <html
+      lang="en"
+      className={`${jakarta.variable} ${playfair.variable}`}
+      data-scroll-behavior="smooth"
+    >
       <body className="min-h-screen bg-ivory text-charcoal antialiased">
         <SmoothScroll>
           <Navbar />

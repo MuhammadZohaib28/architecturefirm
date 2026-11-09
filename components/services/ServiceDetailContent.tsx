@@ -24,6 +24,38 @@ export default function ServiceDetailContent({ service }: { service: Service }) 
         </div>
       </section>
 
+      {/* Pricing supplied in the Lissom service guide */}
+      <section className="border-b border-stone bg-paper py-20 lg:py-28">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
+          <Reveal>
+            <p className="overline mb-5 flex items-center gap-3">
+              <span className="inline-block h-px w-8 bg-bronze" />
+              Packages &amp; Pricing
+            </p>
+            <h3 className="display mb-12 text-3xl text-charcoal lg:text-4xl">
+              A clear starting point.
+            </h3>
+          </Reveal>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            {service.packages.map((item, index) => (
+              <Reveal
+                key={item.title}
+                delay={(index % 2) * 0.08}
+                className="border border-stone bg-ivory p-7 lg:p-9"
+              >
+                <p className="overline">{item.price}</p>
+                <h4 className="mt-5 text-xl font-semibold text-charcoal">
+                  {item.title}
+                </h4>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  {item.description}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* What's included + Benefits */}
       <section className="border-b border-stone bg-ivory py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-12">

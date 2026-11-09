@@ -2,18 +2,14 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  getProject,
-  getProjectsBySlugs,
-  projects,
-} from "@/data/projects";
+import { getProject, projects } from "@/data/projects";
 import Reveal from "@/components/common/Reveal";
 import ProjectGallery from "@/components/projects/ProjectGallery";
 import RelatedProjects from "@/components/projects/RelatedProjects";
 import CtaSection from "@/components/common/CtaSection";
 
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  return projects.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata(
@@ -22,6 +18,7 @@ export async function generateMetadata(
   const { slug } = await props.params;
   const project = getProject(slug);
   if (!project) return { title: "Project Not Found" };
+
   return {
     title: project.title,
     description: project.excerpt,
@@ -45,17 +42,12 @@ export default async function ProjectDetailPage(
   const project = getProject(slug);
   if (!project) notFound();
 
-  const related = getProjectsBySlugs(
-    projects
-      .filter((p) => p.slug !== project.slug && p.category === project.category)
-      .map((p) => p.slug),
-  ).slice(0, 3);
-  const fallback = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
-  const relatedProjects = related.length >= 3 ? related : fallback;
+  const relatedProjects = projects.filter(
+    (candidate) => candidate.slug !== project.slug,
+  );
 
   return (
     <>
-      {/* Cinematic hero */}
       <section className="relative h-[78vh] min-h-[520px] w-full overflow-hidden">
         <Image
           src={project.heroImage}
@@ -83,7 +75,6 @@ export default async function ProjectDetailPage(
         </div>
       </section>
 
-      {/* Overview + meta */}
       <section className="border-b border-stone bg-paper py-20 lg:py-28">
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:gap-16 lg:px-12">
           <Reveal className="lg:col-span-7">
@@ -106,12 +97,12 @@ export default async function ProjectDetailPage(
               <div className="col-span-2 border-t border-stone pt-4">
                 <dt className="overline mb-1.5 text-muted">Scope of Work</dt>
                 <dd className="flex flex-wrap gap-2 pt-1">
-                  {project.scope.map((s) => (
+                  {project.scope.map((scope) => (
                     <span
-                      key={s}
+                      key={scope}
                       className="rounded-full border border-stone px-3 py-1 text-sm text-charcoal-soft"
                     >
-                      {s}
+                      {scope}
                     </span>
                   ))}
                 </dd>
@@ -121,74 +112,14 @@ export default async function ProjectDetailPage(
         </div>
       </section>
 
-      {/* Challenge & Solution */}
-      <section className="border-b border-stone bg-ivory py-20 lg:py-28">
-        <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-12">
-          <Reveal>
-            <h2 className="display mb-5 text-3xl text-charcoal">The Design Challenge</h2>
-            <p className="leading-relaxed text-muted">{project.challenge}</p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h2 className="display mb-5 text-3xl text-charcoal">The Design Solution</h2>
-            <p className="leading-relaxed text-muted">{project.solution}</p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Gallery */}
       <section className="border-b border-stone bg-paper py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
           <Reveal>
-            <h2 className="display mb-12 text-3xl text-charcoal sm:text-4xl">Gallery</h2>
+            <h2 className="display mb-12 text-3xl text-charcoal sm:text-4xl">
+              Gallery
+            </h2>
           </Reveal>
           <ProjectGallery images={project.gallery} title={project.title} />
-        </div>
-      </section>
-
-      {/* Materials + Highlights + Floor plan */}
-      <section className="border-b border-stone bg-ivory py-20 lg:py-28">
-        <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:gap-16 lg:px-12">
-          <Reveal className="lg:col-span-5">
-            <h2 className="display mb-6 text-2xl text-charcoal lg:text-3xl">Materials Used</h2>
-            <ul className="border-t border-stone">
-              {project.materials.map((m) => (
-                <li
-                  key={m}
-                  className="flex items-center gap-4 border-b border-stone py-3.5 text-charcoal-soft"
-                >
-                  <span className="inline-block h-1.5 w-1.5 rotate-45 bg-bronze" />
-                  {m}
-                </li>
-              ))}
-            </ul>
-
-            <h2 className="display mb-6 mt-12 text-2xl text-charcoal lg:text-3xl">Key Highlights</h2>
-            <ul className="space-y-3">
-              {project.highlights.map((h, i) => (
-                <li key={h} className="flex gap-4 text-charcoal-soft">
-                  <span className="overline shrink-0 pt-1 text-bronze">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  {h}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-
-          {/* Floor plan / blueprint placeholder */}
-          <Reveal className="lg:col-span-7" delay={0.1}>
-            <h2 className="display mb-6 text-2xl text-charcoal lg:text-3xl">Floor Plan</h2>
-            <div className="blueprint-grid-fine relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-sm border border-stone bg-stone-soft/60">
-              <div className="absolute inset-6 border border-charcoal/15" />
-              <div className="absolute inset-x-6 top-1/2 h-px bg-charcoal/10" />
-              <div className="absolute inset-y-6 left-1/2 w-px bg-charcoal/10" />
-              <div className="relative text-center">
-                <span className="inline-block h-3 w-3 rotate-45 border border-bronze" />
-                <p className="overline mt-3">Floor Plan</p>
-                <p className="mt-1 text-sm text-muted">Detailed plans available on request</p>
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -196,7 +127,7 @@ export default async function ProjectDetailPage(
 
       <CtaSection
         titleLines={["Inspired by this project?", "Let's design yours."]}
-        description="Every great space starts with a conversation. Tell us what you're imagining."
+        description="Every project starts with a conversation. Tell us what you are imagining."
         secondary={{ href: "/projects", label: "More Projects" }}
       />
     </>

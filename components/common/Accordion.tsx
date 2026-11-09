@@ -16,7 +16,7 @@ export default function Accordion({ items }: { items: Faq[] }) {
             <button
               type="button"
               onClick={() => setOpen(isOpen ? null : i)}
-              className="flex w-full items-center justify-between gap-6 py-6 text-left"
+              className="flex w-full items-center justify-between gap-6 border-x border-stone px-4 py-6 text-left transition-colors hover:bg-stone-soft/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-bronze"
               aria-expanded={isOpen}
             >
               <span className="text-lg font-medium text-charcoal sm:text-xl">

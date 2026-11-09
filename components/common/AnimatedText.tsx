@@ -17,7 +17,8 @@ type AnimatedTextProps = {
 
 /**
  * Editorial heading that reveals line-by-line from behind a mask.
- * Each line sits in an overflow-hidden track and slides up into place.
+ * Each track includes a small bleed area so glyph ascenders, descenders,
+ * and side bearings are never clipped by the reveal mask.
  */
 export default function AnimatedText({
   lines,
@@ -34,7 +35,10 @@ export default function AnimatedText({
   return (
     <span className={cn("block", className)}>
       {lines.map((line, i) => (
-        <span key={i} className="block overflow-hidden">
+        <span
+          key={i}
+          className="-mx-[0.06em] -mt-[0.04em] -mb-[0.18em] block overflow-hidden px-[0.06em] pt-[0.04em] pb-[0.18em]"
+        >
           <motion.span
             className={cn("block", lineClassNames?.[i])}
             variants={lineReveal}

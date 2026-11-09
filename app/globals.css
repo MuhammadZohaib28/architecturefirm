@@ -33,8 +33,10 @@
   --color-foreground: var(--charcoal);
 }
 
-* {
-  border-color: var(--stone);
+@layer base {
+  * {
+    border-color: var(--stone);
+  }
 }
 
 html {
@@ -102,7 +104,8 @@ html.lenis body {
 .display {
   font-weight: 700;
   letter-spacing: 0;
-  line-height: 0.98;
+  /* Keep enough leading for deep descenders in the Jakarta display face. */
+  line-height: 1.04;
 }
 
 .overline {

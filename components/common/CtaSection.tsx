@@ -53,7 +53,7 @@ export default function CtaSection({
           <Button
             href={secondary.href}
             variant="outline"
-            className="border-ivory/40 text-ivory hover:border-ivory hover:bg-ivory hover:text-charcoal"
+            className="border-ivory/40 text-ivory hover:border-ivory hover:bg-ivory hover:!text-black"
           >
             {secondary.label}
           </Button>

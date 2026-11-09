@@ -17,13 +17,14 @@ type ButtonProps = {
 };
 
 const base =
-  "group relative inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide transition-colors duration-300 will-change-transform";
+  "group relative inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide transition-colors duration-300 will-change-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze focus-visible:ring-offset-2";
 
 const variants: Record<Variant, string> = {
-  solid: "bg-charcoal text-ivory hover:bg-bronze",
+  solid: "bg-charcoal text-ivory hover:bg-bronze hover:text-charcoal",
   outline:
     "border border-charcoal/25 text-charcoal hover:border-charcoal hover:bg-charcoal hover:text-ivory",
-  ghost: "text-charcoal hover:text-bronze px-0",
+  ghost:
+    "border border-bronze bg-transparent text-bronze hover:bg-bronze hover:text-charcoal",
 };
 
 export default function Button({

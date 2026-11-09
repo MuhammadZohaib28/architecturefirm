@@ -92,7 +92,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
-              className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
+              className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full border border-stone transition-colors hover:border-bronze hover:bg-bronze focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze lg:hidden"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
             >
@@ -145,7 +145,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-auto inline-flex items-center justify-center rounded-full bg-bronze px-6 py-4 text-base font-semibold text-charcoal"
+              className="mt-auto inline-flex items-center justify-center rounded-full bg-bronze px-6 py-4 text-base font-semibold text-charcoal transition-colors hover:bg-charcoal hover:text-ivory"
             >
               Book Consultation
             </Link>

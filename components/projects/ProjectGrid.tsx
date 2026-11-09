@@ -26,10 +26,10 @@ export default function ProjectGrid() {
               type="button"
               onClick={() => setFilter(cat)}
               className={cn(
-                "relative shrink-0 rounded-full px-4 py-2 text-sm transition-colors duration-300",
+                "relative shrink-0 rounded-full border px-4 py-2 text-sm transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze focus-visible:ring-offset-2",
                 filter === cat
-                  ? "text-ivory"
-                  : "text-muted hover:text-charcoal",
+                  ? "border-charcoal text-ivory"
+                  : "border-stone text-muted hover:border-bronze hover:bg-bronze hover:text-charcoal",
               )}
             >
               {filter === cat && (

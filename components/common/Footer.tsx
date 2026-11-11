@@ -13,8 +13,8 @@ const quickLinks = [
 
 const socials = [
   {
-    href: "https://www.instagram.com/lissom_architects/",
-    label: "Lissom Architects",
+    href: "https://www.instagram.com/studio_lissom/",
+    label: "Studio Lissom LTD",
     Icon: FaInstagram,
   },
 ];
@@ -97,8 +97,8 @@ export default function Footer() {
               <p>London, United Kingdom</p>
               <p>Dubai, United Arab Emirates</p>
               <p>
-                <a href="mailto:hello@lissomarchitects.com" className="hover:text-black">
-                  hello@lissomarchitects.com
+                <a href="mailto:hello@studiolissom.com" className="hover:text-black">
+                  hello@studiolissom.com
                 </a>
               </p>
             </address>
@@ -106,7 +106,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 py-8 text-sm text-white md:flex-row">
-          <p>&copy; {new Date().getFullYear()} Lissom Architects PLC. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Studio Lissom LTD. All rights reserved.</p>
           <p className="flex gap-6">
             <a href="#" className="text-white transition-colors hover:text-black/65">
               Privacy

@@ -1,46 +1,34 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
-  /** Tone of the wordmark — dark on light backgrounds, light on dark. */
+  /** Use the white wordmark on darker backgrounds. */
   tone?: "dark" | "light" | "mono-dark";
   className?: string;
 };
 
-/**
- * Lissom Architects wordmark — "Lissom" in serif italic above a bold
- * "Architects." sans, matching the brand identity sheet.
- */
 export default function Logo({ tone = "dark", className }: LogoProps) {
-  const lissom = tone === "light" ? "text-ivory" : "text-charcoal";
-  const architects =
-    tone === "light"
-      ? "text-ivory"
-      : tone === "mono-dark"
-        ? "text-charcoal"
-        : "text-bronze";
+  const isLight = tone === "light";
+
   return (
     <Link
       href="/"
-      aria-label="Lissom Architects home"
-      className={cn("group inline-flex flex-col leading-none", className)}
+      aria-label="Studio Lissom LTD home"
+      className={cn("inline-flex shrink-0 items-center", className)}
     >
-      <span
-        className={cn(
-          "font-serif text-2xl font-extralight italic leading-[0.85]",
-          lissom,
-        )}
-      >
-        Lissom
-      </span>
-      <span
-        className={cn(
-          "-mt-0.5 text-lg font-extrabold",
-          architects,
-        )}
-      >
-        Architects.
-      </span>
+      <Image
+        src={
+          isLight
+            ? "/images/studio-lissom-logo-white.png"
+            : "/images/studio-lissom-logo.png"
+        }
+        alt="Studio Lissom LTD"
+        width={280}
+        height={137}
+        priority
+        className="h-14 w-auto object-contain"
+      />
     </Link>
   );
 }

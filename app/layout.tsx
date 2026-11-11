@@ -12,7 +12,7 @@ const jakarta = Plus_Jakarta_Sans({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-// Serif used for the "Lissom" wordmark to match the brand identity.
+// Serif used by the Studio Lissom identity.
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
@@ -24,11 +24,11 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL("https://lissomarchitects.com"),
   title: {
-    default: "Lissom Architects - Shaping Spaces. Defining Experiences.",
-    template: "%s · Lissom Architects",
+    default: "Studio Lissom LTD - Shaping Spaces. Defining Experiences.",
+    template: "%s · Studio Lissom LTD",
   },
   description:
-    "Lissom Architects is a multidisciplinary practice across the UK and UAE, shaping architecture, interiors, hospitality and branding as cohesive experiences.",
+    "Studio Lissom LTD is a multidisciplinary practice across the UK and UAE, shaping architecture, interiors, hospitality and branding as cohesive experiences.",
   keywords: [
     "architecture firm",
     "residential architect",
@@ -40,10 +40,26 @@ export const metadata: Metadata = {
     "Dubai architect",
   ],
   openGraph: {
-    title: "Lissom Architects - Shaping Spaces. Defining Experiences.",
+    title: "Studio Lissom LTD - Shaping Spaces. Defining Experiences.",
     description:
       "Shaping architecture, interiors, hospitality and branding across the UK and UAE.",
     type: "website",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: {
+      url: "/apple-touch-icon.png",
+      sizes: "180x180",
+      type: "image/png",
+    },
+  },
+  manifest: "/site.webmanifest",
+  appleWebApp: {
+    title: "Studio Lissom",
   },
 };
 

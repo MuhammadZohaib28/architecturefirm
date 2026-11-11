@@ -8,21 +8,21 @@ import { generalFaqs } from "@/data/faqs";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Lissom Architects to discuss architecture, interiors, hospitality or branding projects across the UK and UAE.",
+    "Get in touch with Studio Lissom LTD to discuss architecture, interiors, hospitality or branding projects across the UK and UAE.",
 };
 
 const details = [
   {
     label: "London Studio",
-    lines: ["United Kingdom", "hello@lissomarchitects.com"],
+    lines: ["United Kingdom", "hello@studiolissom.com"],
   },
   {
     label: "Dubai Studio",
-    lines: ["United Arab Emirates", "hello@lissomarchitects.com"],
+    lines: ["United Arab Emirates", "hello@studiolissom.com"],
   },
   {
     label: "Email",
-    lines: ["hello@lissomarchitects.com", "Mon-Fri, 9am-6pm"],
+    lines: ["hello@studiolissom.com", "Mon-Fri, 9am-6pm"],
   },
 ];
 
@@ -89,12 +89,12 @@ export default function ContactPage() {
               <div className="border-t border-stone pt-5">
                 <h3 className="overline mb-3 text-muted">Follow</h3>
                 <a
-                  href="https://instagram.com/Lissom_Architects"
+                  href="https://instagram.com/studio_lissom"
                   className="inline-flex rounded-full border border-stone px-4 py-2 text-sm text-charcoal-soft transition-colors hover:border-charcoal hover:bg-charcoal hover:text-ivory"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  @Lissom_Architects
+                  @studio_lissom
                 </a>
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function ContactPage() {
             <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-bronze">
               <span className="h-2.5 w-2.5 rounded-full bg-bronze" />
             </span>
-            <p className="overline mt-4">Lissom Architects · London &amp; Dubai</p>
+            <p className="overline mt-4">Studio Lissom LTD · London &amp; Dubai</p>
             <p className="mt-1 text-sm text-muted">UK | UAE</p>
           </div>
         </div>

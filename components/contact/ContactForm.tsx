@@ -74,7 +74,7 @@ export default function ContactForm() {
         </h3>
         <p className="mt-4 max-w-md leading-relaxed text-muted">
           Your enquiry has been recorded in this preview. Email the studio at
-          hello@lissomarchitects.com to send your project details directly.
+          hello@studiolissom.com to send your project details directly.
         </p>
         <button
           type="button"

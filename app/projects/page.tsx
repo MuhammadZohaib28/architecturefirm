@@ -6,7 +6,7 @@ import CtaSection from "@/components/common/CtaSection";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Explore residential architecture and interior projects by Lissom Architects in Essex, England.",
+    "Explore residential architecture and interior projects by Studio Lissom LTD in Essex, England.",
 };
 
 export default function ProjectsPage() {

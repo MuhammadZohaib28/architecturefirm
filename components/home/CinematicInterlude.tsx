@@ -71,7 +71,7 @@ export default function CinematicInterlude() {
             playsInline
             preload="metadata"
             poster="/media/lissom-animation-poster.jpg"
-            aria-label="Lissom architectural animation"
+            aria-label="Studio Lissom LTD architectural animation"
             onLoadedMetadata={(event) => {
               if (event.currentTarget.currentTime < 0.1) {
                 event.currentTarget.currentTime = 2.4;

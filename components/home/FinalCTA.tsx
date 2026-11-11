@@ -14,7 +14,7 @@ export default function FinalCTA() {
           <div className="absolute inset-0">
             <Image
               src="/images/projects/the-willow-house/island-kitchen.jpg"
-              alt="Kitchen interior at The Willow House by Lissom"
+              alt="Kitchen interior at The Willow House by Studio Lissom LTD"
               fill
               sizes="100vw"
               className="object-cover"

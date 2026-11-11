@@ -8,7 +8,7 @@ import { services } from "@/data/services";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Residential architecture, commercial and retail interiors, and integrated spatial and brand design — the full range of services offered by Lissom Architects.",
+    "Residential architecture, commercial and retail interiors, and integrated spatial and brand design — the full range of services offered by Studio Lissom LTD.",
 };
 
 const offerings = [

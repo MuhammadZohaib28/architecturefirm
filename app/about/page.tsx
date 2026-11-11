@@ -8,7 +8,7 @@ import CtaSection from "@/components/common/CtaSection";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Lissom Architects is a multidisciplinary practice across the UK and UAE, shaping architecture, interiors, hospitality and branding as cohesive experiences.",
+    "Studio Lissom LTD is a multidisciplinary practice across the UK and UAE, shaping architecture, interiors, hospitality and branding as cohesive experiences.",
 };
 
 const disciplines = [
@@ -77,7 +77,7 @@ export default function AboutPage() {
       <section className="bg-ivory">
         <ParallaxImage
           src="/images/projects/the-gables/front-day.jpg"
-          alt="The Gables by Lissom in Essex"
+          alt="The Gables by Studio Lissom LTD in Essex"
           className="h-[60vh] min-h-[420px] w-full"
           sizes="100vw"
           amount={70}
@@ -132,7 +132,7 @@ export default function AboutPage() {
                 <div className="img-zoom relative aspect-[3/4] overflow-hidden rounded-sm bg-stone-soft">
                   <Image
                     src={src}
-                    alt="Selected Lissom Architects interior work"
+                    alt="Selected Studio Lissom LTD interior work"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover"
@@ -146,7 +146,7 @@ export default function AboutPage() {
 
       <CtaSection
         titleLines={["Let's create something", "lasting together."]}
-        description="Tell us about your project and explore how Lissom can help."
+        description="Tell us about your project and explore how Studio Lissom LTD can help."
       />
     </>
   );

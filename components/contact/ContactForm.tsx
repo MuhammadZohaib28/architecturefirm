@@ -50,14 +50,41 @@ const labelClass = "overline mb-2 block text-charcoal-soft";
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initial);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((current) => ({ ...current, [key]: value }));
   }
 
-  function handleSubmit(event: React.FormEvent) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+
+    try {
+      const website = new FormData(event.currentTarget).get("website");
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, website }),
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(result.error ?? "We could not send your enquiry.");
+      }
+
+      setSubmitted(true);
+    } catch (submissionError) {
+      setError(
+        submissionError instanceof Error
+          ? submissionError.message
+          : "We could not send your enquiry. Please try again.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -73,8 +100,7 @@ export default function ContactForm() {
           Thank you, {form.name || "friend"}.
         </h3>
         <p className="mt-4 max-w-md leading-relaxed text-muted">
-          Your enquiry has been recorded in this preview. Email the studio at
-          hello@studiolissom.com to send your project details directly.
+          Your enquiry has been sent to the studio. We will be in touch soon.
         </p>
         <button
           type="button"
@@ -92,11 +118,20 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute -left-[9999px] h-px w-px overflow-hidden"
+      />
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>Full Name</label>
           <input
             id="name"
+            name="name"
             required
             value={form.name}
             onChange={(event) => update("name", event.target.value)}
@@ -108,6 +143,7 @@ export default function ContactForm() {
           <label htmlFor="email" className={labelClass}>Email</label>
           <input
             id="email"
+            name="email"
             type="email"
             required
             value={form.email}
@@ -123,6 +159,7 @@ export default function ContactForm() {
           <label htmlFor="phone" className={labelClass}>Phone</label>
           <input
             id="phone"
+            name="phone"
             type="tel"
             value={form.phone}
             onChange={(event) => update("phone", event.target.value)}
@@ -134,6 +171,7 @@ export default function ContactForm() {
           <label htmlFor="projectType" className={labelClass}>Project Type</label>
           <select
             id="projectType"
+            name="projectType"
             required
             value={form.projectType}
             onChange={(event) => update("projectType", event.target.value)}
@@ -154,6 +192,7 @@ export default function ContactForm() {
           <label htmlFor="budget" className={labelClass}>Budget Range</label>
           <select
             id="budget"
+            name="budget"
             value={form.budget}
             onChange={(event) => update("budget", event.target.value)}
             className={cn(fieldClass, !form.budget && "text-muted/60")}
@@ -170,6 +209,7 @@ export default function ContactForm() {
           <label htmlFor="location" className={labelClass}>Project Location</label>
           <input
             id="location"
+            name="location"
             required
             value={form.location}
             onChange={(event) => update("location", event.target.value)}
@@ -183,6 +223,7 @@ export default function ContactForm() {
         <label htmlFor="message" className={labelClass}>Tell us about your project</label>
         <textarea
           id="message"
+          name="message"
           required
           rows={4}
           value={form.message}
@@ -192,11 +233,19 @@ export default function ContactForm() {
         />
       </div>
 
+      {error ? (
+        <p role="alert" className="text-sm text-red-700">
+          {error}
+        </p>
+      ) : null}
+
       <button
         type="submit"
+        disabled={submitting}
+        aria-busy={submitting}
         className="group inline-flex items-center gap-3 rounded-full bg-charcoal px-8 py-4 text-sm font-medium text-ivory transition-colors duration-300 hover:bg-bronze hover:text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze focus-visible:ring-offset-2"
       >
-        Send Enquiry
+        {submitting ? "Sending..." : "Send Enquiry"}
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
           <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
         </svg>

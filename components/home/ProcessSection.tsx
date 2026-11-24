@@ -72,11 +72,9 @@ export default function ProcessSection() {
             Our Design Process
           </h3>
           <p className="mt-5 leading-relaxed text-muted">
-            As Architects, we follow the RIBA Plan of Works within our design
-            process, which spans from our initial meeting and site visits to
-            building completion and handover. The below suite of stages is based
-            on a &apos;Full Architects Service&apos; in which we can tailor our scope
-            and role to your project requirements and programme.
+            At Studio Lissom, we follow the RIBA Plan of Work, guiding projects
+            from the first meeting through to completion. Our full architecture
+            service is tailored to your project, requirements and programme.
           </p>
         </div>
 

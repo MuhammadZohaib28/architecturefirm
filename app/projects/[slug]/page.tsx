@@ -22,7 +22,15 @@ export async function generateMetadata(
   return {
     title: project.title,
     description: project.excerpt,
-    openGraph: { images: [project.coverImage] },
+    alternates: { canonical: `/projects/${project.slug}` },
+    openGraph: {
+      title: `${project.title} | Studio Lissom`,
+      description: project.excerpt,
+      url: `/projects/${project.slug}`,
+      type: "article",
+      images: [{ url: project.coverImage, alt: project.title }],
+    },
+    twitter: { card: "summary_large_image", images: [project.coverImage] },
   };
 }
 
@@ -45,9 +53,26 @@ export default async function ProjectDetailPage(
   const relatedProjects = projects.filter(
     (candidate) => candidate.slug !== project.slug,
   );
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `${project.title} | Studio Lissom`,
+    description: project.excerpt,
+    url: `https://studiolissom.com/projects/${project.slug}`,
+    isPartOf: { "@id": "https://studiolissom.com/#website" },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://studiolissom.com" },
+        { "@type": "ListItem", position: 2, name: "Projects", item: "https://studiolissom.com/projects" },
+        { "@type": "ListItem", position: 3, name: project.title, item: `https://studiolissom.com/projects/${project.slug}` },
+      ],
+    },
+  };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       <section className="relative h-[78vh] min-h-[520px] w-full overflow-hidden">
         <Image
           src={project.heroImage}

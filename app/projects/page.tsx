@@ -4,9 +4,10 @@ import ProjectGrid from "@/components/projects/ProjectGrid";
 import CtaSection from "@/components/common/CtaSection";
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "Residential Architecture & Interior Design Projects",
   description:
     "Explore residential architecture and interior projects by Studio Lissom LTD in Essex, England.",
+  alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsPage() {

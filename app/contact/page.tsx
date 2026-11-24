@@ -6,9 +6,10 @@ import Accordion from "@/components/common/Accordion";
 import { generalFaqs } from "@/data/faqs";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact Our Architecture & Design Studio",
   description:
     "Get in touch with Studio Lissom LTD to discuss architecture, interiors, hospitality or branding projects across the UK and UAE.",
+  alternates: { canonical: "/contact" },
 };
 
 const details = [

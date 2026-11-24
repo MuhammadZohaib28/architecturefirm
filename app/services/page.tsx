@@ -6,9 +6,10 @@ import Reveal from "@/components/common/Reveal";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Architecture, Interiors & Planning Services",
   description:
     "Residential architecture, commercial and retail interiors, and integrated spatial and brand design — the full range of services offered by Studio Lissom LTD.",
+  alternates: { canonical: "/services" },
 };
 
 const offerings = [

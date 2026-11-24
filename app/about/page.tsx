@@ -6,9 +6,10 @@ import ParallaxImage from "@/components/common/ParallaxImage";
 import CtaSection from "@/components/common/CtaSection";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Our Architecture & Design Practice",
   description:
     "Studio Lissom LTD is a multidisciplinary practice across the UK and UAE, shaping architecture, interiors, hospitality and branding as cohesive experiences.",
+  alternates: { canonical: "/about" },
 };
 
 const disciplines = [

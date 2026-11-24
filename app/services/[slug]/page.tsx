@@ -21,7 +21,14 @@ export async function generateMetadata(
   return {
     title: service.title,
     description: service.excerpt,
-    openGraph: { images: [service.heroImage] },
+    alternates: { canonical: `/services/${service.slug}` },
+    openGraph: {
+      title: `${service.title} Services | Studio Lissom`,
+      description: service.excerpt,
+      url: `/services/${service.slug}`,
+      images: [{ url: service.heroImage, alt: `${service.title} services by Studio Lissom` }],
+    },
+    twitter: { card: "summary_large_image", images: [service.heroImage] },
   };
 }
 
@@ -33,9 +40,26 @@ export default async function ServiceDetailPage(
   if (!service) notFound();
 
   const related = getProjectsBySlugs(service.relatedProjects).slice(0, 3);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `${service.title} Services | Studio Lissom`,
+    description: service.excerpt,
+    url: `https://studiolissom.com/services/${service.slug}`,
+    isPartOf: { "@id": "https://studiolissom.com/#website" },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://studiolissom.com" },
+        { "@type": "ListItem", position: 2, name: "Services", item: "https://studiolissom.com/services" },
+        { "@type": "ListItem", position: 3, name: service.title, item: `https://studiolissom.com/services/${service.slug}` },
+      ],
+    },
+  };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[480px] w-full overflow-hidden">
         <Image

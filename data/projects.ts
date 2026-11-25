@@ -20,7 +20,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "the-gables",
-    title: "The Gables by Studio Lissom LTD",
+    title: "The Gables by Lissom",
     category: "Residential",
     location: "Essex, England",
     year: "2026",
@@ -50,7 +50,7 @@ export const projects: Project[] = [
   },
   {
     slug: "the-willow-house",
-    title: "The Willow House by Studio Lissom LTD",
+    title: "The Willow House by Lissom",
     category: "Residential",
     location: "Chelmsford, Essex, England",
     year: "2026",

@@ -72,9 +72,8 @@ export default function ProcessSection() {
             Our Design Process
           </h3>
           <p className="mt-5 leading-relaxed text-muted">
-            At Studio Lissom, we follow the RIBA Plan of Work, guiding projects
-            from the first meeting through to completion. Our full architecture
-            service is tailored to your project, requirements and programme.
+            Our full architecture service follows the RIBA Plan of Work,
+            from initial brief to completion.
           </p>
         </div>
 

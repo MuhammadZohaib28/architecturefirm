@@ -78,7 +78,7 @@ export default function AboutPage() {
       <section className="bg-ivory">
         <ParallaxImage
           src="/images/projects/the-gables/front-day.jpg"
-          alt="The Gables by Studio Lissom LTD in Essex"
+          alt="The Gables by Lissom in Essex"
           className="h-[60vh] min-h-[420px] w-full"
           sizes="100vw"
           amount={70}

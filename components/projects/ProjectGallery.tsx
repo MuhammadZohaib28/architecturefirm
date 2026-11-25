@@ -4,14 +4,14 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { viewportOnce } from "@/lib/animations";
+import { getProjectImageAlt, type Project } from "@/data/projects";
 
 export default function ProjectGallery({
-  images,
-  title,
+  project,
 }: {
-  images: string[];
-  title: string;
+  project: Project;
 }) {
+  const { gallery: images } = project;
   const [open, setOpen] = useState<number | null>(null);
 
   useEffect(() => {
@@ -30,6 +30,7 @@ export default function ProjectGallery({
             key={src}
             type="button"
             onClick={() => setOpen(i)}
+            aria-label={`Open ${getProjectImageAlt(project, src)}`}
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={viewportOnce}
@@ -44,7 +45,7 @@ export default function ProjectGallery({
           >
             <Image
               src={src}
-              alt={`${title} — gallery image ${i + 1}`}
+              alt={getProjectImageAlt(project, src)}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className={src.includes("plan") ? "object-contain p-4" : "object-cover"}
@@ -78,7 +79,7 @@ export default function ProjectGallery({
             >
               <Image
                 src={images[open]}
-                alt={`${title} — enlarged image`}
+                alt={getProjectImageAlt(project, images[open])}
                 fill
                 sizes="90vw"
                 className="object-contain"

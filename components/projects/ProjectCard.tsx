@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import type { Project } from "@/data/projects";
+import { getProjectImageAlt, type Project } from "@/data/projects";
 
 type ProjectCardProps = {
   project: Project;
@@ -24,7 +24,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         <div className="img-zoom relative aspect-[4/3] overflow-hidden rounded-sm bg-stone-soft">
           <Image
             src={project.coverImage}
-            alt={project.title}
+            alt={getProjectImageAlt(project, project.coverImage)}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover"

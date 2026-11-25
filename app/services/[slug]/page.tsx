@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
 import { getService, services } from "@/data/services";
 import { getProjectsBySlugs } from "@/data/projects";
 import ServiceDetailContent from "@/components/services/ServiceDetailContent";
 import RelatedProjects from "@/components/projects/RelatedProjects";
 import CtaSection from "@/components/common/CtaSection";
+import Breadcrumbs from "@/components/common/Breadcrumbs";
+import JsonLd from "@/components/seo/JsonLd";
+import { createPageMetadata } from "@/lib/seo";
+import { serviceJsonLd } from "@/lib/structured-data";
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -17,19 +22,17 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { slug } = await props.params;
   const service = getService(slug);
-  if (!service) return { title: "Service Not Found" };
-  return {
-    title: service.title,
-    description: service.excerpt,
-    alternates: { canonical: `/services/${service.slug}` },
-    openGraph: {
-      title: `${service.title} Services | Studio Lissom`,
-      description: service.excerpt,
-      url: `/services/${service.slug}`,
-      images: [{ url: service.heroImage, alt: `${service.title} services by Studio Lissom` }],
-    },
-    twitter: { card: "summary_large_image", images: [service.heroImage] },
-  };
+  if (!service) {
+    return { title: "Service Not Found", robots: { index: false, follow: false } };
+  }
+
+  return createPageMetadata({
+    title: service.seoTitle,
+    description: service.metaDescription,
+    path: `/services/${service.slug}`,
+    image: service.heroImage,
+    imageAlt: `${service.title} services by Studio Lissom`,
+  });
 }
 
 export default async function ServiceDetailPage(
@@ -40,26 +43,9 @@ export default async function ServiceDetailPage(
   if (!service) notFound();
 
   const related = getProjectsBySlugs(service.relatedProjects).slice(0, 3);
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: `${service.title} Services | Studio Lissom`,
-    description: service.excerpt,
-    url: `https://studiolissom.com/services/${service.slug}`,
-    isPartOf: { "@id": "https://studiolissom.com/#website" },
-    breadcrumb: {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://studiolissom.com" },
-        { "@type": "ListItem", position: 2, name: "Services", item: "https://studiolissom.com/services" },
-        { "@type": "ListItem", position: 3, name: service.title, item: `https://studiolissom.com/services/${service.slug}` },
-      ],
-    },
-  };
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
+      <JsonLd data={serviceJsonLd(service)} />
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[480px] w-full overflow-hidden">
         <Image
@@ -77,12 +63,10 @@ export default async function ServiceDetailPage(
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/25 to-charcoal/35" />
         <div className="absolute inset-x-0 bottom-0">
           <div className="mx-auto max-w-[1400px] px-6 pb-12 lg:px-12 lg:pb-16">
-            <Link
-              href="/services"
-              className="overline mb-4 inline-flex items-center gap-2 text-ivory/70 transition-colors hover:text-ivory"
-            >
-              ← All Services
-            </Link>
+            <Breadcrumbs
+              parent={{ href: "/services", label: "Services" }}
+              current={service.title}
+            />
             <div className="flex items-end gap-5">
               <span className="display text-5xl text-bronze-soft sm:text-6xl">
                 {service.number}

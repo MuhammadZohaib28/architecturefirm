@@ -55,7 +55,7 @@ export default function Navbar() {
         )}
       >
         <nav className="mx-auto flex h-20 max-w-[1400px] items-center justify-between px-6 lg:px-12">
-          <Logo />
+          <Logo priority />
 
           <ul className="hidden items-center gap-9 lg:flex">
             {links.map((link) => (

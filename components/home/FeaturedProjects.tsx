@@ -4,8 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/common/SectionHeader";
-import { getFeaturedProjects } from "@/data/projects";
-import type { Project } from "@/data/projects";
+import {
+  getFeaturedProjects,
+  getProjectImageAlt,
+  type Project,
+} from "@/data/projects";
 import { viewportOnce } from "@/lib/animations";
 
 function ProjectTile({
@@ -33,7 +36,7 @@ function ProjectTile({
         >
           <Image
             src={project.coverImage}
-            alt={project.title}
+            alt={getProjectImageAlt(project, project.coverImage)}
             fill
             sizes={large ? "(max-width: 1024px) 100vw, 55vw" : "(max-width: 1024px) 100vw, 40vw"}
             className="object-cover"

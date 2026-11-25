@@ -46,11 +46,13 @@ export default function PageHero({
           {eyebrow}
         </motion.div>
 
-        <AnimatedText
-          lines={titleLines}
-          animateOnMount
-          className="display max-w-4xl text-5xl sm:text-6xl lg:text-7xl"
-        />
+        <h1>
+          <AnimatedText
+            lines={titleLines}
+            animateOnMount
+            className="display max-w-4xl text-5xl sm:text-6xl lg:text-7xl"
+          />
+        </h1>
 
         {description && (
           <motion.p

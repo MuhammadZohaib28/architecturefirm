@@ -1,16 +1,23 @@
-import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import PageHero from "@/components/common/PageHero";
 import Reveal from "@/components/common/Reveal";
 import ParallaxImage from "@/components/common/ParallaxImage";
 import CtaSection from "@/components/common/CtaSection";
+import JsonLd from "@/components/seo/JsonLd";
+import { createPageMetadata } from "@/lib/seo";
+import { webPageJsonLd } from "@/lib/structured-data";
 
-export const metadata: Metadata = {
+const description =
+  "Meet Studio Lissom LTD, a multidisciplinary architecture and design practice shaping considered spaces and brand experiences across the UK and UAE.";
+
+export const metadata = createPageMetadata({
   title: "About Our Architecture & Design Practice",
-  description:
-    "Studio Lissom LTD is a multidisciplinary practice across the UK and UAE, shaping architecture, interiors, hospitality and branding as cohesive experiences.",
-  alternates: { canonical: "/about" },
-};
+  description,
+  path: "/about",
+  image: "/images/projects/the-gables/front-day.jpg",
+  imageAlt: "The Gables residence by Studio Lissom in Essex",
+});
 
 const disciplines = [
   {
@@ -44,6 +51,14 @@ const studioGallery = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={webPageJsonLd(
+          "AboutPage",
+          "About Studio Lissom",
+          description,
+          "/about",
+        )}
+      />
       <PageHero
         eyebrow="The Practice · UK | UAE"
         titleLines={["Shaping spaces.", "Defining experiences."]}
@@ -61,15 +76,28 @@ export default function AboutPage() {
             </Reveal>
             <Reveal as="span" className="block" delay={0.1}>
               Our work includes new builds, extensions, interior design, and
-              brand development for hospitality - from visual identity and logo
-              design to signage, packaging, and environmental graphics. This
-              holistic approach helps spatial and visual touchpoints work
-              together as one consistent experience.
+              brand development for hospitality. Explore our integrated{" "}
+              <Link
+                href="/services"
+                className="text-charcoal underline decoration-bronze underline-offset-4"
+              >
+                architecture and design services
+              </Link>
+              , from visual identity and logo design to signage, packaging, and
+              environmental graphics. This holistic approach helps spatial and
+              visual touchpoints work together as one consistent experience.
             </Reveal>
             <Reveal as="span" className="block" delay={0.2}>
               With a focus on sustainability, material quality, and refined
               detailing, we create spaces and identities that are purposeful,
-              enduring, and carefully tailored to their context.
+              enduring, and carefully tailored to their context. Our{" "}
+              <Link
+                href="/projects"
+                className="text-charcoal underline decoration-bronze underline-offset-4"
+              >
+                selected residential projects
+              </Link>{" "}
+              show that approach in practice.
             </Reveal>
           </div>
         </div>

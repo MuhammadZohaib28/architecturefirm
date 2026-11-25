@@ -1,16 +1,22 @@
-import type { Metadata } from "next";
 import PageHero from "@/components/common/PageHero";
 import ContactForm from "@/components/contact/ContactForm";
 import Reveal from "@/components/common/Reveal";
 import Accordion from "@/components/common/Accordion";
+import JsonLd from "@/components/seo/JsonLd";
 import { generalFaqs } from "@/data/faqs";
+import { createPageMetadata } from "@/lib/seo";
+import { webPageJsonLd } from "@/lib/structured-data";
 
-export const metadata: Metadata = {
+const description =
+  "Contact Studio Lissom LTD to discuss architecture, interiors, hospitality or branding projects across the UK and UAE.";
+
+export const metadata = createPageMetadata({
   title: "Contact Our Architecture & Design Studio",
-  description:
-    "Get in touch with Studio Lissom LTD to discuss architecture, interiors, hospitality or branding projects across the UK and UAE.",
-  alternates: { canonical: "/contact" },
-};
+  description,
+  path: "/contact",
+  image: "/images/projects/the-gables/front-entry.jpg",
+  imageAlt: "Entrance detail at The Gables by Studio Lissom",
+});
 
 const details = [
   {
@@ -30,6 +36,14 @@ const details = [
 export default function ContactPage() {
   return (
     <>
+      <JsonLd
+        data={webPageJsonLd(
+          "ContactPage",
+          "Contact Studio Lissom",
+          description,
+          "/contact",
+        )}
+      />
       <PageHero
         eyebrow="Get In Touch"
         titleLines={["Let's start a", "conversation."]}

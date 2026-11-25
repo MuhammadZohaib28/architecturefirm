@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
-import { getProject, projects } from "@/data/projects";
+import { getProject, getProjectImageAlt, projects } from "@/data/projects";
 import Reveal from "@/components/common/Reveal";
 import ProjectGallery from "@/components/projects/ProjectGallery";
 import RelatedProjects from "@/components/projects/RelatedProjects";
 import CtaSection from "@/components/common/CtaSection";
+import Breadcrumbs from "@/components/common/Breadcrumbs";
+import JsonLd from "@/components/seo/JsonLd";
+import { createPageMetadata } from "@/lib/seo";
+import { projectJsonLd } from "@/lib/structured-data";
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -17,21 +22,18 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { slug } = await props.params;
   const project = getProject(slug);
-  if (!project) return { title: "Project Not Found" };
+  if (!project) {
+    return { title: "Project Not Found", robots: { index: false, follow: false } };
+  }
 
-  return {
+  return createPageMetadata({
     title: project.title,
     description: project.excerpt,
-    alternates: { canonical: `/projects/${project.slug}` },
-    openGraph: {
-      title: `${project.title} | Studio Lissom`,
-      description: project.excerpt,
-      url: `/projects/${project.slug}`,
-      type: "article",
-      images: [{ url: project.coverImage, alt: project.title }],
-    },
-    twitter: { card: "summary_large_image", images: [project.coverImage] },
-  };
+    path: `/projects/${project.slug}`,
+    image: project.coverImage,
+    imageAlt: getProjectImageAlt(project, project.coverImage),
+    type: "article",
+  });
 }
 
 function Meta({ label, value }: { label: string; value: string }) {
@@ -53,30 +55,13 @@ export default async function ProjectDetailPage(
   const relatedProjects = projects.filter(
     (candidate) => candidate.slug !== project.slug,
   );
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: `${project.title} | Studio Lissom`,
-    description: project.excerpt,
-    url: `https://studiolissom.com/projects/${project.slug}`,
-    isPartOf: { "@id": "https://studiolissom.com/#website" },
-    breadcrumb: {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://studiolissom.com" },
-        { "@type": "ListItem", position: 2, name: "Projects", item: "https://studiolissom.com/projects" },
-        { "@type": "ListItem", position: 3, name: project.title, item: `https://studiolissom.com/projects/${project.slug}` },
-      ],
-    },
-  };
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
+      <JsonLd data={projectJsonLd(project)} />
       <section className="relative h-[78vh] min-h-[520px] w-full overflow-hidden">
         <Image
           src={project.heroImage}
-          alt={project.title}
+          alt={getProjectImageAlt(project, project.heroImage)}
           fill
           priority
           sizes="100vw"
@@ -85,12 +70,10 @@ export default async function ProjectDetailPage(
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-charcoal/30" />
         <div className="absolute inset-x-0 bottom-0">
           <div className="mx-auto max-w-[1400px] px-6 pb-12 lg:px-12 lg:pb-16">
-            <Link
-              href="/projects"
-              className="overline mb-4 inline-flex items-center gap-2 text-ivory/70 transition-colors hover:text-ivory"
-            >
-              ← All Projects
-            </Link>
+            <Breadcrumbs
+              parent={{ href: "/projects", label: "Projects" }}
+              current={project.title}
+            />
             <p className="overline mb-3 text-bronze-soft">{project.category}</p>
             <h1 className="display max-w-4xl text-5xl text-ivory sm:text-6xl lg:text-7xl">
               {project.title}
@@ -144,7 +127,7 @@ export default async function ProjectDetailPage(
               Gallery
             </h2>
           </Reveal>
-          <ProjectGallery images={project.gallery} title={project.title} />
+          <ProjectGallery project={project} />
         </div>
       </section>
 

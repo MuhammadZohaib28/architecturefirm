@@ -1,16 +1,22 @@
-import type { Metadata } from "next";
 import PageHero from "@/components/common/PageHero";
 import ServiceCard from "@/components/services/ServiceCard";
 import CtaSection from "@/components/common/CtaSection";
 import Reveal from "@/components/common/Reveal";
+import JsonLd from "@/components/seo/JsonLd";
 import { services } from "@/data/services";
+import { createPageMetadata } from "@/lib/seo";
+import { collectionPageJsonLd } from "@/lib/structured-data";
 
-export const metadata: Metadata = {
-  title: "Architecture, Interiors & Planning Services",
-  description:
-    "Residential architecture, commercial and retail interiors, and integrated spatial and brand design — the full range of services offered by Studio Lissom LTD.",
-  alternates: { canonical: "/services" },
-};
+const description =
+  "Explore Studio Lissom's concept design, planning and Building Control services for residential architecture projects across the UK and UAE.";
+
+export const metadata = createPageMetadata({
+  title: "Architecture, Planning & Building Control Services",
+  description,
+  path: "/services",
+  image: "/images/projects/the-gables/dining-room.png",
+  imageAlt: "Interior architecture by Studio Lissom",
+});
 
 const offerings = [
   "Concept design and feasibility",
@@ -28,6 +34,17 @@ const offerings = [
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={collectionPageJsonLd(
+          "Studio Lissom Architecture Services",
+          description,
+          "/services",
+          services.map((service) => ({
+            name: service.seoTitle,
+            path: `/services/${service.slug}`,
+          })),
+        )}
+      />
       <PageHero
         eyebrow="What We Offer"
         titleLines={["Services for every", "stage of a space."]}

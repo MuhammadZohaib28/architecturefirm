@@ -107,14 +107,7 @@ export default function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-4 py-8 text-sm text-white md:flex-row">
           <p>&copy; {new Date().getFullYear()} Studio Lissom LTD. All rights reserved.</p>
-          <p className="flex gap-6">
-            <a href="#" className="text-white transition-colors hover:text-black/65">
-              Privacy
-            </a>
-            <a href="#" className="text-white transition-colors hover:text-black/65">
-              Terms
-            </a>
-          </p>
+          <p>Architecture · Interiors · Planning</p>
         </div>
       </div>
     </footer>

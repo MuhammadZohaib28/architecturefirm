@@ -6,9 +6,10 @@ type LogoProps = {
   /** Use the white wordmark on darker backgrounds. */
   tone?: "dark" | "light" | "mono-dark";
   className?: string;
+  priority?: boolean;
 };
 
-export default function Logo({ tone = "dark", className }: LogoProps) {
+export default function Logo({ tone = "dark", className, priority = false }: LogoProps) {
   const isLight = tone === "light";
 
   return (
@@ -26,7 +27,7 @@ export default function Logo({ tone = "dark", className }: LogoProps) {
         alt="Studio Lissom LTD"
         width={280}
         height={137}
-        priority
+        priority={priority}
         className="h-14 w-auto object-contain"
       />
     </Link>

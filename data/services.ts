@@ -18,6 +18,8 @@ export type Service = {
   slug: string;
   number: string;
   title: string;
+  seoTitle: string;
+  metaDescription: string;
   tagline: string;
   excerpt: string;
   description: string;
@@ -38,6 +40,9 @@ export const services: Service[] = [
     slug: "concept",
     number: "01",
     title: "Concept",
+    seoTitle: "Concept Design & Feasibility Services",
+    metaDescription:
+      "Explore property potential with concept design, feasibility drawings and optional CGI by Studio Lissom, with services available across the UK and UAE.",
     tagline: "See the potential before you commit.",
     excerpt:
       "Unsure of your property's potential? Let us help you visualise it from just £250.",
@@ -108,6 +113,9 @@ export const services: Service[] = [
     slug: "planning",
     number: "02",
     title: "Planning",
+    seoTitle: "Planning Drawings & Submission Services",
+    metaDescription:
+      "Measured surveys, planning drawings, application preparation and submission support from Studio Lissom for projects across the UK and UAE.",
     tagline: "From survey to submission, in one clear process.",
     excerpt:
       "All your planning needs, from survey to approval, with planning drawings from £1,000.",
@@ -182,6 +190,9 @@ export const services: Service[] = [
     slug: "building-control",
     number: "03",
     title: "Building Control",
+    seoTitle: "Building Control & Technical Drawing Services",
+    metaDescription:
+      "Technical drawings, Building Control information and Structural Engineer coordination by Studio Lissom for construction-ready projects.",
     tagline: "Technical drawings that carry the design into construction.",
     excerpt:
       "Detailed technical plans for Structural Engineer coordination, Building Control sign-off and construction on site.",

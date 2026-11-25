@@ -89,6 +89,35 @@ export function getProject(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug);
 }
 
+const projectImageDescriptions: Record<string, string> = {
+  "front-day": "front elevation in daylight",
+  "front-oblique": "oblique view of the front elevation",
+  "front-entry": "front entrance and brick detailing",
+  "front-night": "illuminated front elevation at night",
+  "front-detail": "front elevation architectural detail",
+  "winter-elevation": "front elevation in a winter landscape",
+  "winter-front": "front elevation in winter",
+  "winter-rear": "rear elevation in winter",
+  "rear-elevation": "rear elevation and garden",
+  "rear-extension": "rear extension and garden connection",
+  "rear-detail": "rear elevation architectural detail",
+  "rear-night": "illuminated rear elevation at night",
+  "dining-room": "dining room interior",
+  "kitchen-dining": "open-plan kitchen and dining interior",
+  kitchen: "kitchen interior",
+  "island-kitchen": "kitchen island and dining interior",
+  "living-space": "open-plan living space",
+  "ground-floor-plan": "ground-floor architectural plan",
+  "first-floor-plan": "first-floor architectural plan",
+  vfdvdvd: "rear elevation and contemporary extension",
+};
+
+export function getProjectImageAlt(project: Project, src: string): string {
+  const filename = src.split("/").at(-1)?.replace(/\.[^.]+$/, "") ?? "project";
+  const description = projectImageDescriptions[filename] ?? "architectural project view";
+  return `${description} at ${project.title}, ${project.location}`;
+}
+
 export function getFeaturedProjects(): Project[] {
   return projects.filter((project) => project.featured);
 }
